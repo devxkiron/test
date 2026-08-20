@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+
+/* ─── Tailwind v4 Theme Tokens Binding to CSS Variables ──────────────── */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-canvas-alt: var(--canvas-alt);
+  --color-canvas-subtle: var(--canvas-subtle);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-ink-ghost: var(--ink-ghost);
+
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  /* Steel / Slate Accent */
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-accent-light: var(--accent-light);
+  --color-accent-bg: var(--accent-bg);
+
+  /* Sage / Forest Success */
+  --color-success: var(--success);
+  --color-success-dark: var(--success-dark);
+  --color-success-light: var(--success-light);
+  --color-success-bg: var(--success-bg);
+
+  /* Champagne / Gold */
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --color-gold-light: var(--gold-light);
+  --color-gold-bg: var(--gold-bg);
+
+  /* Muted Rose */
+  --color-rose: var(--rose-c);
+  --color-rose-dark: var(--rose-dark);
+  --color-rose-light: var(--rose-light);
+  --color-rose-bg: var(--rose-bg);
+
+  /* Warm Bronze */
+  --color-warm: var(--warm);
+  --color-warm-dark: var(--warm-dark);
+  --color-warm-light: var(--warm-light);
+  --color-warm-bg: var(--warm-bg);
+}
+
+/* ─── Light Mode Theme System (Centralized & Fully Maintainable) ───────── */
+:root {
+  /* Background & Surface Levels */
+  --canvas: #FFFFFF;
+  --canvas-alt: #F3F4F5;
+  --canvas-subtle: #E5E7EA;
+
+  /* Typography Colors */
+  --ink: #1A1A1A;
+  --ink-muted: #646367;
+  --ink-faint: #8C8F94;
+  --ink-ghost: #9C9FA4;
+
+  /* Border & Divider Strokes */
+  --line: #D9DCE0;
+  --line-strong: #CED1D6;
+
+  /* Steel Accent (#507293, #395570, #DDE6F2, #F6F9FD) */
+  --accent: #507293;
+  --accent-dark: #395570;
+  --accent-light: #DDE6F2;
+  --accent-bg: #F6F9FD;
+
+  /* Sage Success (#4B8C5E, #2D593C, #DEEADB, #F4F8F4) */
+  --success: #4B8C5E;
+  --success-dark: #2D593C;
+  --success-light: #DEEADB;
+  --success-bg: #F4F8F4;
+
+  /* Gold (#B59A4E, #685B2D, #EFE7CC, #FAF8EE) */
+  --gold: #B59A4E;
+  --gold-dark: #685B2D;
+  --gold-light: #EFE7CC;
+  --gold-bg: #FAF8EE;
+
+  /* Rose (#B96D7C, #6F3743, #EED8DC, #FAF0F2) */
+  --rose-c: #B96D7C;
+  --rose-dark: #6F3743;
+  --rose-light: #EED8DC;
+  --rose-bg: #FAF0F2;
+
+  /* Warm Bronze (#BD844F, #6D4D2B, #EFE1D0, #FAF4EC) */
+  --warm: #BD844F;
+  --warm-dark: #6D4D2B;
+  --warm-light: #EFE1D0;
+  --warm-bg: #FAF4EC;
+}
+
+/* ─── Dark Mode Theme System (Centralized & Fully Maintainable) ────────── */
+.dark {
+  /* Background & Surface Levels */
+  --canvas: #1A1A1A;
+  --canvas-alt: #1A161A;
+  --canvas-subtle: #464349;
+
+  /* Typography Colors */
+  --ink: #E5E7EA;
+  --ink-muted: #BFC3C8;
+  --ink-faint: #9C9FA4;
+  --ink-ghost: #65646A;
+
+  /* Border & Divider Strokes */
+  --line: #464349;
+  --line-strong: #65646A;
+
+  /* Steel Accent in Dark */
+  --accent: #507293;
+  --accent-dark: #DDE6F2;
+  --accent-light: #395570;
+  --accent-bg: rgba(80, 114, 147, 0.16);
+
+  /* Sage Success in Dark */
+  --success: #4B8C5E;
+  --success-dark: #DEEADB;
+  --success-light: #2D593C;
+  --success-bg: rgba(75, 140, 94, 0.16);
+
+  /* Gold in Dark */
+  --gold: #B59A4E;
+  --gold-dark: #EFE7CC;
+  --gold-light: #685B2D;
+  --gold-bg: rgba(181, 154, 78, 0.16);
+
+  /* Rose in Dark */
+  --rose-c: #B96D7C;
+  --rose-dark: #EED8DC;
+  --rose-light: #6F3743;
+  --rose-bg: rgba(185, 109, 124, 0.16);
+
+  /* Warm Bronze in Dark */
+  --warm: #BD844F;
+  --warm-dark: #EFE1D0;
+  --warm-light: #6D4D2B;
+  --warm-bg: rgba(189, 132, 79, 0.16);
+}
+
+/* ─── Global Reset & Base Elements ─────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+code, pre, .font-mono {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* ─── Custom Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
+
+/* ─── Selection & Focus ────────────────────────────────────────────────── */
+::selection {
+  background: rgba(80, 114, 147, 0.25);
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ─── Ultra-Subtle Shimmer on Hover (Not constant, low opacity) ──── */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.015) 45%,
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0.015) 55%,
+    transparent 65%
+  );
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+}
+
+:root:not(.dark) .shimmer::after {
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(0, 0, 0, 0.008) 45%,
+    rgba(0, 0, 0, 0.02) 50%,
+    rgba(0, 0, 0, 0.008) 55%,
+    transparent 65%
+  );
+}
+
+.shimmer:hover::after,
+.shimmer:focus-visible::after {
+  transform: translateX(100%);
+  opacity: 1;
+}
+
+/* ─── Marquee Animation ────────────────────────────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Range Slider Inputs ──────────────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background: var(--line);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--canvas);
+  box-shadow: 0 0 8px rgba(80, 114, 147, 0.35);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--canvas);
+  box-shadow: 0 0 8px rgba(80, 114, 147, 0.35);
+  cursor: pointer;
+}
