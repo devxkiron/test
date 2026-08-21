@@ -189,7 +189,7 @@ export function WorkflowPipeline() {
         </div>
 
         {/* SVG Path Interactive Flow Ribbon */}
-        <div className="relative rounded-lg border border-line bg-canvas-alt/60 p-6 sm:p-8 mb-8 overflow-hidden shimmer">
+        <div className="relative rounded-xs border border-line bg-canvas-alt/60 p-6 sm:p-8 mb-8 overflow-hidden">
           <div className="relative hidden lg:block mb-8">
             <svg className="w-full h-14" viewBox="0 0 1000 60" fill="none" preserveAspectRatio="none">
               <path
@@ -229,9 +229,9 @@ export function WorkflowPipeline() {
                   key={step.id}
                   onClick={() => setActiveStep(step.id)}
                   className={cn(
-                    "text-left p-4 rounded-lg border transition-all duration-200 relative group flex flex-col justify-between min-h-[140px]",
+                    "text-left p-4 rounded-xs border transition-all duration-150 relative group flex flex-col justify-between min-h-[140px] cursor-pointer",
                     isSelected
-                      ? "border-accent bg-canvas shadow-[0_2px_20px_rgba(80,114,147,0.12)] ring-1 ring-accent"
+                      ? "border-accent bg-canvas shadow-xs ring-1 ring-accent"
                       : "border-line bg-canvas/80 hover:border-line-strong hover:bg-canvas"
                   )}
                 >
@@ -239,7 +239,7 @@ export function WorkflowPipeline() {
                     <span className="text-xs font-mono font-bold text-ink-muted">
                       0{idx + 1}
                     </span>
-                    <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded border border-line text-ink-muted bg-canvas-alt">
+                    <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-xs border border-line text-ink-muted bg-canvas-alt">
                       {step.role}
                     </span>
                   </div>
@@ -254,13 +254,13 @@ export function WorkflowPipeline() {
                         {step.title}
                       </span>
                     </div>
-                    <span className="text-[11px] text-ink-muted">
+                    <span className="text-[11px] text-ink-muted font-mono">
                       {step.latency} · {step.throughput}
                     </span>
                   </div>
 
                   {isSelected && (
-                    <div className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent rounded-full" />
+                    <div className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent" />
                   )}
                 </button>
               );
@@ -270,7 +270,7 @@ export function WorkflowPipeline() {
 
         {/* Selected Node Telemetry Inspector */}
         <AnimateOnScroll direction="up">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 rounded-lg border border-line bg-canvas p-6 sm:p-8 shimmer">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 rounded-xs border border-line bg-canvas p-6 sm:p-8">
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-3">
@@ -291,29 +291,29 @@ export function WorkflowPipeline() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-3 pt-4 border-t border-line">
+              <div className="grid grid-cols-3 gap-3 pt-4 border-t border-line font-mono">
                 <div>
-                  <span className="text-[11px] text-ink-muted block uppercase tracking-wider font-mono">P99 Latency</span>
-                  <span className="text-lg font-bold font-mono text-ink">{current.latency}</span>
+                  <span className="text-[11px] text-ink-muted block uppercase tracking-wider">P99 Latency</span>
+                  <span className="text-lg font-bold text-ink">{current.latency}</span>
                 </div>
                 <div>
-                  <span className="text-[11px] text-ink-muted block uppercase tracking-wider font-mono">Throughput</span>
-                  <span className="text-lg font-bold font-mono text-ink">{current.throughput}</span>
+                  <span className="text-[11px] text-ink-muted block uppercase tracking-wider">Throughput</span>
+                  <span className="text-lg font-bold text-ink">{current.throughput}</span>
                 </div>
                 <div>
-                  <span className="text-[11px] text-ink-muted block uppercase tracking-wider font-mono">Total Packets</span>
-                  <span className="text-lg font-bold font-mono text-success">{(simCounter * (pipelineSteps.findIndex(s=>s.id === current.id) + 1)).toLocaleString()}</span>
+                  <span className="text-[11px] text-ink-muted block uppercase tracking-wider">Total Packets</span>
+                  <span className="text-lg font-bold text-success">{(simCounter * (pipelineSteps.findIndex(s=>s.id === current.id) + 1)).toLocaleString()}</span>
                 </div>
               </div>
             </div>
 
             {/* Live Terminal Payload Inspector */}
-            <div className="lg:col-span-5 rounded-md border border-line bg-canvas-alt p-4 font-mono text-xs text-ink-muted">
+            <div className="lg:col-span-5 rounded-xs border border-line bg-canvas-alt p-4 font-mono text-xs text-ink-muted">
               <div className="flex items-center justify-between border-b border-line pb-2 mb-3">
                 <div className="flex items-center gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+                  <span className="h-2 w-2 rounded-xs bg-line-strong" />
+                  <span className="h-2 w-2 rounded-xs bg-line-strong" />
+                  <span className="h-2 w-2 rounded-xs bg-line-strong" />
                 </div>
                 <span className="text-[10px] text-ink-ghost uppercase">live_payload_stream.json</span>
               </div>

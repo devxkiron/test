@@ -63,9 +63,9 @@ function CustomPipelineNode({ data, selected }: NodeProps<PipelineNode>) {
   return (
     <div
       className={cn(
-        "rounded-lg border bg-canvas p-3.5 shadow-md transition-all duration-200 min-w-[200px] select-none shimmer",
+        "rounded-xs border bg-canvas p-3.5 shadow-xs transition-all duration-150 min-w-[200px] select-none",
         selected
-          ? "border-accent ring-2 ring-accent shadow-[0_4px_24px_rgba(80,114,147,0.2)]"
+          ? "border-accent ring-1 ring-accent"
           : "border-line hover:border-line-strong"
       )}
     >
@@ -73,13 +73,13 @@ function CustomPipelineNode({ data, selected }: NodeProps<PipelineNode>) {
       <Handle
         type="target"
         position={Position.Top}
-        className="!h-2.5 !w-2.5 !bg-accent !border-2 !border-canvas"
+        className="!h-2 !w-2 !bg-accent !border !border-canvas !rounded-none"
       />
 
       <div className="flex items-center justify-between gap-2 mb-2">
         <div className="flex items-center gap-2">
           <div className={cn(
-            "h-6 w-6 rounded border flex items-center justify-center shrink-0",
+            "h-6 w-6 rounded-xs border flex items-center justify-center shrink-0",
             data.accent === "success" && "border-success-light bg-success-bg text-success",
             data.accent === "gold" && "border-gold-light bg-gold-bg text-gold",
             data.accent === "accent" && "border-accent-light bg-accent-bg text-accent"
@@ -90,7 +90,7 @@ function CustomPipelineNode({ data, selected }: NodeProps<PipelineNode>) {
             {data.label}
           </span>
         </div>
-        <div className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" />
+        <div className="h-1.5 w-1.5 rounded-xs bg-success animate-pulse" />
       </div>
 
       <div className="flex items-center justify-between text-[10px] font-mono text-ink-muted border-t border-line/60 pt-2">
@@ -102,7 +102,7 @@ function CustomPipelineNode({ data, selected }: NodeProps<PipelineNode>) {
       <Handle
         type="source"
         position={Position.Bottom}
-        className="!h-2.5 !w-2.5 !bg-accent !border-2 !border-canvas"
+        className="!h-2 !w-2 !bg-accent !border !border-canvas !rounded-none"
       />
     </div>
   );
@@ -336,7 +336,7 @@ export function PhysicsSandbox() {
         </div>
 
         {/* React Flow Workspace Container */}
-        <div className="relative rounded-lg border border-line overflow-hidden bg-canvas h-[480px] sm:h-[540px] shadow-sm">
+        <div className="relative rounded-xs border border-line overflow-hidden bg-canvas h-[480px] sm:h-[540px] shadow-xs">
           <ReactFlow
             nodes={nodes}
             edges={edges}
@@ -358,14 +358,14 @@ export function PhysicsSandbox() {
               color="var(--line-strong)"
               className="opacity-40"
             />
-            <Controls className="!border !border-line !bg-canvas !shadow-sm [&>button]:!border-b [&>button]:!border-line [&>button]:!bg-canvas [&>button]:!fill-ink" />
+            <Controls className="!border !border-line !bg-canvas !shadow-xs [&>button]:!border-b [&>button]:!border-line [&>button]:!bg-canvas [&>button]:!fill-ink !rounded-xs" />
           </ReactFlow>
 
           {/* Bottom Action Ribbon */}
-          <div className="absolute bottom-0 left-0 right-0 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-line px-5 py-3.5 bg-canvas/90 backdrop-blur-md z-10">
+          <div className="absolute bottom-0 left-0 right-0 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-line px-5 py-3 bg-canvas/90 backdrop-blur-md z-10">
             <div className="flex items-center gap-4 text-xs font-mono">
               <div className="flex items-center gap-2">
-                <div className={`h-2 w-2 rounded-full ${isAutoOrganized ? "bg-success animate-pulse" : "bg-accent"}`} />
+                <div className={`h-2 w-2 rounded-xs ${isAutoOrganized ? "bg-success animate-pulse" : "bg-accent"}`} />
                 <span className="font-semibold text-ink">
                   {isAutoOrganized ? "Autonomous Alignment" : "Freeform Drag Mode"}
                 </span>
@@ -382,7 +382,7 @@ export function PhysicsSandbox() {
                 variant="secondary"
                 size="sm"
                 onClick={handleAddNode}
-                className="shimmer"
+                className="rounded-xs text-xs font-mono"
               >
                 <PlusSignIcon size={14} className="mr-1" />
                 Add Node
@@ -391,7 +391,7 @@ export function PhysicsSandbox() {
                 variant="outline"
                 size="sm"
                 onClick={handleReset}
-                className="shimmer"
+                className="rounded-xs text-xs font-mono px-2"
                 title="Reset to default"
               >
                 <RotateLeft01Icon size={14} />
@@ -400,7 +400,7 @@ export function PhysicsSandbox() {
                 variant={isAutoOrganized ? "outline" : "primary"}
                 size="sm"
                 onClick={handleAutoAlign}
-                className="shimmer"
+                className="rounded-xs text-xs font-mono"
               >
                 {isAutoOrganized ? (
                   <>Freeform Scatter</>

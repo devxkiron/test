@@ -1,8 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Syne:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
 @import "tailwindcss";
 
 /* ─── Tailwind v4 Theme Tokens Binding to CSS Variables ──────────────── */
 @theme inline {
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Syne", "Manrope", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
   --color-canvas: var(--canvas);
   --color-canvas-alt: var(--canvas-alt);
   --color-canvas-subtle: var(--canvas-subtle);
@@ -50,6 +54,7 @@
 :root {
   /* Background & Surface Levels */
   --canvas: #FFFFFF;
+  --canvas-glass: rgba(255, 255, 255, 0.82);
   --canvas-alt: #F3F4F5;
   --canvas-subtle: #E5E7EA;
 
@@ -98,6 +103,7 @@
 .dark {
   /* Background & Surface Levels */
   --canvas: #1A1A1A;
+  --canvas-glass: rgba(18, 18, 22, 0.82);
   --canvas-alt: #1A161A;
   --canvas-subtle: #464349;
 
@@ -174,6 +180,22 @@ code, pre, .font-mono {
   font-family: "JetBrains Mono", "Fira Code", monospace;
 }
 
+/* ─── Base Typography ─────────────────────────────────────────────────── */
+html, body {
+  font-family: var(--font-sans), sans-serif;
+  letter-spacing: -0.015em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: -0.025em;
+  font-feature-settings: "ss01", "ss02";
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
 /* ─── Custom Scrollbar ─────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -189,6 +211,29 @@ code, pre, .font-mono {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* ─── Liquid Glass Aesthetics ─────────────────────────────────────────── */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 10px 30px 0 rgba(0, 0, 0, 0.06),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.dark .liquid-glass {
+  background: rgba(18, 18, 22, 0.72);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 12px 40px 0 rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4);
 }
 
 /* ─── Ultra-Subtle Shimmer on Hover (Not constant, low opacity) ──── */

@@ -41,9 +41,9 @@ export function ServicesGrid() {
               <div
                 key={service.id}
                 className={cn(
-                  "relative rounded-lg border bg-canvas p-6 transition-all duration-300 flex flex-col justify-between shimmer",
+                  "relative rounded-xs border bg-canvas p-6 transition-all duration-200 flex flex-col justify-between",
                   isHovered
-                    ? "border-line-strong shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(255,255,255,0.03)]"
+                    ? "border-line-strong shadow-xs"
                     : "border-line"
                 )}
                 onMouseEnter={() => setHovered(service.id)}
@@ -51,7 +51,7 @@ export function ServicesGrid() {
               >
                 <div>
                   {/* Icon */}
-                  <div className="inline-flex items-center justify-center h-10 w-10 rounded-md border border-line bg-canvas-alt text-ink mb-5">
+                  <div className="inline-flex items-center justify-center h-10 w-10 rounded-xs border border-line bg-canvas-alt text-ink mb-5">
                     <Icon size={20} className="text-accent" />
                   </div>
 
@@ -84,8 +84,8 @@ export function ServicesGrid() {
                 </div>
 
                 {/* Metric Callout */}
-                <div className="rounded-md border border-line bg-canvas-alt p-3.5 mt-2">
-                  <div className="text-xl font-bold font-mono text-ink tracking-tight">
+                <div className="rounded-xs border border-line bg-canvas-alt p-3.5 mt-2 font-mono">
+                  <div className="text-xl font-bold text-ink tracking-tight">
                     {service.metrics.value}
                   </div>
                   <div className="text-xs text-ink-muted mt-0.5">{service.metrics.label}</div>

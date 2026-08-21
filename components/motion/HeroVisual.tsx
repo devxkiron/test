@@ -62,10 +62,10 @@ function HeroArchitectureNode({ data, selected }: NodeProps<HeroNode>) {
   return (
     <div
       className={cn(
-        "rounded-lg border bg-canvas p-3 shadow-md transition-all duration-200 min-w-[190px] select-none shimmer",
+        "rounded-xs border bg-canvas/95 backdrop-blur-md p-3 transition-all duration-200 min-w-[190px] select-none shadow-xs",
         selected
-          ? "border-accent ring-2 ring-accent shadow-[0_4px_20px_rgba(80,114,147,0.2)]"
-          : "border-line hover:border-line-strong hover:shadow-sm"
+          ? "border-accent ring-1 ring-accent"
+          : "border-line hover:border-line-strong"
       )}
     >
       {/* Left Input Handle */}
@@ -79,7 +79,7 @@ function HeroArchitectureNode({ data, selected }: NodeProps<HeroNode>) {
         <div className="flex items-center gap-2">
           <div
             className={cn(
-              "h-6 w-6 rounded border flex items-center justify-center shrink-0",
+              "h-6 w-6 rounded-xs border flex items-center justify-center shrink-0",
               data.accent === "success" && "border-success-light bg-success-bg text-success",
               data.accent === "gold" && "border-gold-light bg-gold-bg text-gold",
               data.accent === "accent" && "border-accent-light bg-accent-bg text-accent"
@@ -91,7 +91,7 @@ function HeroArchitectureNode({ data, selected }: NodeProps<HeroNode>) {
             {data.title}
           </span>
         </div>
-        <div className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" />
+        <div className="h-1.5 w-1.5 rounded-xs bg-success animate-pulse" />
       </div>
 
       <div className="flex items-center justify-between text-[10px] font-mono text-ink-muted border-t border-line/60 pt-1.5">
@@ -307,7 +307,7 @@ export function HeroVisual() {
   };
 
   return (
-    <div className="relative w-full h-[460px] sm:h-[500px] rounded-lg border border-line overflow-hidden bg-canvas shadow-sm">
+    <div className="relative w-full h-[460px] sm:h-[500px] rounded-xs border border-line overflow-hidden bg-canvas/90 backdrop-blur-md shadow-xs">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -320,28 +320,28 @@ export function HeroVisual() {
         minZoom={0.5}
         maxZoom={1.4}
         proOptions={{ hideAttribution: true }}
-        className="bg-canvas select-none"
+        className="bg-transparent select-none"
       >
         <Background
           variant={BackgroundVariant.Dots}
           gap={20}
           size={1}
           color="var(--line-strong)"
-          className="opacity-40"
+          className="opacity-30"
         />
-        <Controls className="!border !border-line !bg-canvas !shadow-sm [&>button]:!border-b [&>button]:!border-line [&>button]:!bg-canvas [&>button]:!fill-ink" />
+        <Controls className="!border !border-line !bg-canvas/90 !backdrop-blur-sm !shadow-xs [&>button]:!border-b [&>button]:!border-line [&>button]:!bg-canvas [&>button]:!fill-ink" />
       </ReactFlow>
 
       {/* Top Floating Status Indicator */}
-      <div className="absolute top-3 left-3 z-10 flex items-center gap-2 rounded-md border border-line bg-canvas/90 backdrop-blur-sm px-2.5 py-1 text-[11px] font-mono shadow-sm">
-        <div className="h-2 w-2 rounded-full bg-success animate-pulse" />
+      <div className="absolute top-3 left-3 z-10 flex items-center gap-2 rounded-xs border border-line bg-canvas/95 backdrop-blur-md px-2.5 py-1 text-[11px] font-mono shadow-xs">
+        <div className="h-2 w-2 rounded-xs bg-success animate-pulse" />
         <span className="text-ink font-semibold">Live Architecture DAG</span>
         <span className="text-ink-muted">·</span>
         <span className="text-success font-bold">{throughput.toLocaleString()} req/s</span>
       </div>
 
       {/* Bottom Floating Control Bar */}
-      <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between rounded-md border border-line bg-canvas/90 backdrop-blur-sm px-3 py-2 text-xs font-mono shadow-sm">
+      <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between rounded-xs border border-line bg-canvas/95 backdrop-blur-md px-3 py-2 text-xs font-mono shadow-xs">
         <div className="flex items-center gap-1.5 text-[11px] text-ink-muted">
           <CheckmarkCircle01Icon size={14} className="text-success" />
           <span className="hidden sm:inline">Interactive: Drag nodes or re-route paths</span>
@@ -352,7 +352,7 @@ export function HeroVisual() {
             variant="ghost"
             size="sm"
             onClick={handleReset}
-            className="h-7 px-2 text-[11px] shimmer"
+            className="h-7 px-2 text-[11px] rounded-xs"
             title="Reset DAG Layout"
           >
             <RotateLeft01Icon size={12} className="mr-1" />
@@ -363,7 +363,7 @@ export function HeroVisual() {
             variant="secondary"
             size="sm"
             onClick={() => setIsSimulating(!isSimulating)}
-            className="h-7 px-2.5 text-[11px] shimmer"
+            className="h-7 px-2.5 text-[11px] rounded-xs font-mono"
           >
             {isSimulating ? (
               <>

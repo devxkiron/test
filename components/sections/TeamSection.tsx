@@ -50,9 +50,9 @@ export function TeamSection() {
                 key={member.id}
                 onClick={() => setActiveMemberId(member.id)}
                 className={cn(
-                  "relative rounded-lg border bg-canvas p-6 cursor-pointer transition-all duration-300 flex flex-col justify-between shimmer",
+                  "relative rounded-xs border bg-canvas p-6 cursor-pointer transition-all duration-200 flex flex-col justify-between shadow-xs",
                   isSelected
-                    ? "border-accent ring-1 ring-accent shadow-[0_4px_24px_rgba(80,114,147,0.12)]"
+                    ? "border-accent ring-1 ring-accent"
                     : "border-line hover:border-line-strong"
                 )}
               >
@@ -61,11 +61,11 @@ export function TeamSection() {
                     <Badge variant={member.accent} size="sm">
                       {member.role}
                     </Badge>
-                    <div className="h-2 w-2 rounded-full bg-success" />
+                    <div className="h-2 w-2 rounded-xs bg-success" />
                   </div>
 
                   {/* Icon Avatar */}
-                  <div className="h-12 w-12 rounded-md border border-line bg-canvas-alt flex items-center justify-center text-ink mb-4">
+                  <div className="h-12 w-12 rounded-xs border border-line bg-canvas-alt flex items-center justify-center text-ink mb-4">
                     <Icon size={24} className="text-accent" />
                   </div>
 
@@ -85,9 +85,9 @@ export function TeamSection() {
                     {member.metrics.map((m) => (
                       <div
                         key={m.label}
-                        className="rounded border border-line bg-canvas-alt p-2 text-center"
+                        className="rounded-xs border border-line bg-canvas-alt p-2 text-center font-mono"
                       >
-                        <div className="text-xs font-bold font-mono text-ink">{m.value}</div>
+                        <div className="text-xs font-bold text-ink">{m.value}</div>
                         <div className="text-[10px] text-ink-muted mt-0.5">{m.label}</div>
                       </div>
                     ))}
@@ -100,7 +100,7 @@ export function TeamSection() {
                     {member.stack.map((tech) => (
                       <span
                         key={tech}
-                        className="inline-flex items-center rounded border border-line bg-canvas-alt px-2 py-0.5 text-[11px] font-mono text-ink-muted"
+                        className="inline-flex items-center rounded-xs border border-line bg-canvas-alt px-2 py-0.5 text-[11px] font-mono text-ink-muted"
                       >
                         {tech}
                       </span>
@@ -108,7 +108,7 @@ export function TeamSection() {
                   </div>
 
                   {/* Social links */}
-                  <div className="flex items-center gap-3 pt-3 border-t border-line text-xs text-ink-muted">
+                  <div className="flex items-center gap-3 pt-3 border-t border-line text-xs font-mono text-ink-muted">
                     <a
                       href={member.github}
                       target="_blank"
@@ -136,7 +136,7 @@ export function TeamSection() {
         </div>
 
         {/* Selected Engineer Telemetry Spec */}
-        <div className="rounded-lg border border-line bg-canvas-alt/70 p-6 shimmer">
+        <div className="rounded-xs border border-line bg-canvas-alt/70 p-6 shadow-xs">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-line pb-4 mb-4">
             <div className="flex items-center gap-2.5">
               <CodeSquareIcon size={18} className="text-accent" />
@@ -150,15 +150,15 @@ export function TeamSection() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono">
-            <div className="rounded border border-line bg-canvas p-3">
+            <div className="rounded-xs border border-line bg-canvas p-3">
               <span className="text-[10px] text-ink-muted uppercase block mb-1">Signature Stack</span>
               <span className="text-ink font-semibold">{activeMember.stack.slice(0, 3).join(" · ")}</span>
             </div>
-            <div className="rounded border border-line bg-canvas p-3">
+            <div className="rounded-xs border border-line bg-canvas p-3">
               <span className="text-[10px] text-ink-muted uppercase block mb-1">Optimization Benchmark</span>
               <span className="text-success font-semibold">{activeMember.metrics[0].label}: {activeMember.metrics[0].value}</span>
             </div>
-            <div className="rounded border border-line bg-canvas p-3">
+            <div className="rounded-xs border border-line bg-canvas p-3">
               <span className="text-[10px] text-ink-muted uppercase block mb-1">Architecture Guarantee</span>
               <span className="text-ink font-semibold">100% Direct Principal Review</span>
             </div>

@@ -37,7 +37,7 @@ export function RoiCalculatorSection() {
             </p>
           </div>
 
-          <div className="mx-auto max-w-3xl rounded-lg border border-line bg-canvas overflow-hidden shimmer">
+          <div className="mx-auto max-w-3xl rounded-xs border border-line bg-canvas overflow-hidden shadow-xs">
             {/* Inputs */}
             <div className="p-6 sm:p-8 space-y-7">
               {[
@@ -86,7 +86,7 @@ export function RoiCalculatorSection() {
                       step={slider.step}
                       value={slider.value}
                       onChange={(e) => slider.setter(Number(e.target.value))}
-                      className="w-full h-1.5 rounded-full bg-line-strong cursor-pointer"
+                      className="w-full h-1.5 rounded-none bg-line-strong cursor-pointer"
                     />
                   </div>
                   <div className="flex justify-between mt-1.5 text-[11px] font-mono text-ink-ghost">
@@ -99,7 +99,7 @@ export function RoiCalculatorSection() {
 
             {/* Results Grid */}
             <div className="border-t border-line bg-canvas-alt/50 p-6 sm:p-8">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6 font-mono">
                 {[
                   {
                     label: "Hours Automated / Wk",
@@ -122,8 +122,8 @@ export function RoiCalculatorSection() {
                     color: "text-accent",
                   },
                 ].map((r) => (
-                  <div key={r.label} className="text-center rounded border border-line bg-canvas p-3">
-                    <div className={`text-xl sm:text-2xl font-bold font-mono tracking-tight ${r.color}`}>
+                  <div key={r.label} className="text-center rounded-xs border border-line bg-canvas p-3">
+                    <div className={`text-xl sm:text-2xl font-bold tracking-tight ${r.color}`}>
                       {r.value}
                     </div>
                     <div className="text-[11px] text-ink-muted mt-1">{r.label}</div>
@@ -131,7 +131,7 @@ export function RoiCalculatorSection() {
                 ))}
               </div>
 
-              <div className="rounded-md border border-line bg-canvas p-4 mb-6 text-xs sm:text-sm text-ink-muted flex items-center justify-between">
+              <div className="rounded-xs border border-line bg-canvas p-4 mb-6 text-xs sm:text-sm text-ink-muted flex items-center justify-between">
                 <span>
                   Estimated payback period: <strong className="text-ink">4–7 weeks</strong>.
                 </span>
@@ -140,7 +140,7 @@ export function RoiCalculatorSection() {
                 </span>
               </div>
 
-              <Button className="w-full shimmer" size="lg" onClick={() => setAuditOpen(true)}>
+              <Button className="w-full rounded-xs text-xs font-mono" size="lg" onClick={() => setAuditOpen(true)}>
                 <ArrowRight01Icon size={16} className="mr-1.5 text-accent-light" />
                 Validate These Numbers — Book Free Audit
               </Button>

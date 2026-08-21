@@ -95,7 +95,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
     >
       <div
         className={cn(
-          "relative w-full max-w-xl rounded-lg border border-line bg-canvas shadow-[0_0_60px_rgba(0,0,0,0.5)] overflow-hidden shimmer",
+          "relative w-full max-w-xl rounded-xs border border-line bg-canvas shadow-xs overflow-hidden",
           "transition-all duration-300"
         )}
       >
@@ -136,13 +136,13 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                   Confirmation sent to <span className="font-mono text-ink font-semibold">{form.email}</span>
                 </p>
               </div>
-              <div className="w-full rounded border border-line bg-canvas-alt p-4 text-left text-xs text-ink-muted space-y-2">
+              <div className="w-full rounded-xs border border-line bg-canvas-alt p-4 text-left text-xs text-ink-muted space-y-2">
                 <p className="font-mono font-bold text-ink uppercase text-[10px]">Next Steps:</p>
                 <p>1. Direct review by Frontend, Backend & Automation principals.</p>
                 <p>2. Customized implementation & ROI roadmap.</p>
                 <p>3. 30-minute technical walkthrough call.</p>
               </div>
-              <Button variant="outline" size="sm" onClick={onClose} className="mt-2 w-full shimmer">
+              <Button variant="outline" size="sm" onClick={onClose} className="mt-2 w-full">
                 Close Window
               </Button>
             </div>
@@ -155,14 +155,14 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                     key={point}
                     onClick={() => togglePain(point)}
                     className={cn(
-                      "flex items-center gap-3 rounded border px-3.5 py-2.5 text-xs text-left transition-all duration-150",
+                      "flex items-center gap-3 rounded-xs border px-3.5 py-2.5 text-xs text-left transition-all duration-150 cursor-pointer",
                       selected.includes(point)
                         ? "border-accent bg-accent-bg text-ink font-medium"
                         : "border-line text-ink-muted hover:border-line-strong hover:text-ink"
                     )}
                   >
                     <span className={cn(
-                      "flex h-4 w-4 shrink-0 rounded border transition-colors items-center justify-center text-[10px]",
+                      "flex h-4 w-4 shrink-0 rounded-xs border transition-colors items-center justify-center text-[10px]",
                       selected.includes(point)
                         ? "border-accent bg-accent text-white"
                         : "border-line"
@@ -174,7 +174,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                 ))}
               </div>
               <Button
-                className="w-full mt-4 shimmer"
+                className="w-full mt-4"
                 onClick={() => setStep(2)}
                 disabled={selected.length === 0}
               >
@@ -194,7 +194,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                       placeholder="Alex Chen"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full rounded border border-line bg-canvas-alt pl-8 pr-3 py-2 text-xs text-ink placeholder:text-ink-ghost focus:outline-none focus:border-accent"
+                      className="w-full rounded-xs border border-line bg-canvas-alt pl-8 pr-3 py-2 text-xs text-ink placeholder:text-ink-ghost focus:outline-none focus:border-accent"
                     />
                   </div>
                 </div>
@@ -208,7 +208,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                       placeholder="alex@company.com"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full rounded border border-line bg-canvas-alt pl-8 pr-3 py-2 text-xs text-ink placeholder:text-ink-ghost focus:outline-none focus:border-accent"
+                      className="w-full rounded-xs border border-line bg-canvas-alt pl-8 pr-3 py-2 text-xs text-ink placeholder:text-ink-ghost focus:outline-none focus:border-accent"
                     />
                   </div>
                 </div>
@@ -223,7 +223,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                     placeholder="Acme Logistics Inc."
                     value={form.company}
                     onChange={(e) => setForm({ ...form, company: e.target.value })}
-                    className="w-full rounded border border-line bg-canvas-alt pl-8 pr-3 py-2 text-xs text-ink placeholder:text-ink-ghost focus:outline-none focus:border-accent"
+                    className="w-full rounded-xs border border-line bg-canvas-alt pl-8 pr-3 py-2 text-xs text-ink placeholder:text-ink-ghost focus:outline-none focus:border-accent"
                   />
                 </div>
               </div>
@@ -234,7 +234,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                     required
                     value={form.size}
                     onChange={(e) => setForm({ ...form, size: e.target.value })}
-                    className="w-full appearance-none rounded border border-line bg-canvas-alt px-3 py-2 text-xs text-ink focus:outline-none focus:border-accent"
+                    className="w-full appearance-none rounded-xs border border-line bg-canvas-alt px-3 py-2 text-xs text-ink focus:outline-none focus:border-accent"
                   >
                     <option value="">Select organizational scale</option>
                     <option value="1-10">1–10 employees</option>
@@ -246,13 +246,13 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                 </div>
               </div>
               <div className="flex gap-2 pt-2">
-                <Button variant="outline" size="sm" className="flex-1 shimmer" type="button" onClick={() => setStep(1)}>Back</Button>
-                <Button className="flex-1 shimmer" size="sm" type="submit">Continue <ArrowRight01Icon size={14} className="ml-1" /></Button>
+                <Button variant="outline" size="sm" className="flex-1" type="button" onClick={() => setStep(1)}>Back</Button>
+                <Button className="flex-1" size="sm" type="submit">Continue <ArrowRight01Icon size={14} className="ml-1" /></Button>
               </div>
             </form>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3.5 text-xs">
-              <div className="rounded border border-line p-3 bg-canvas-alt/50">
+              <div className="rounded-xs border border-line p-3 bg-canvas-alt/50">
                 <div className="flex items-center gap-2 mb-2">
                   <Calendar01Icon size={14} className="text-accent" />
                   <span className="font-semibold text-ink">Select Preferred Time Window</span>
@@ -262,7 +262,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                     <button
                       key={slot}
                       type="button"
-                      className="rounded border border-line bg-canvas px-2.5 py-1.5 text-[11px] font-mono text-ink-muted hover:border-accent hover:text-ink transition-colors text-left"
+                      className="rounded-xs border border-line bg-canvas px-2.5 py-1.5 text-[11px] font-mono text-ink-muted hover:border-accent hover:text-ink transition-colors text-left cursor-pointer"
                     >
                       {slot}
                     </button>
@@ -276,12 +276,12 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                   placeholder="Describe your current tech stack or primary bottleneck..."
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full rounded border border-line bg-canvas-alt px-3 py-2 text-xs text-ink placeholder:text-ink-ghost focus:outline-none focus:border-accent resize-none"
+                  className="w-full rounded-xs border border-line bg-canvas-alt px-3 py-2 text-xs text-ink placeholder:text-ink-ghost focus:outline-none focus:border-accent resize-none"
                 />
               </div>
               <div className="flex gap-2 pt-2">
-                <Button variant="outline" size="sm" className="flex-1 shimmer" type="button" onClick={() => setStep(2)}>Back</Button>
-                <Button className="flex-1 shimmer" size="sm" type="submit" loading={loading}>
+                <Button variant="outline" size="sm" className="flex-1" type="button" onClick={() => setStep(2)}>Back</Button>
+                <Button className="flex-1" size="sm" type="submit" loading={loading}>
                   {loading ? "Submitting..." : "Confirm Free Audit"}
                 </Button>
               </div>

@@ -163,9 +163,9 @@ export function InteractiveSvgTimeline() {
                   {/* Step Card */}
                   <div
                     className={cn(
-                      "lg:col-span-6 rounded-lg border bg-canvas p-6 shadow-sm transition-all duration-300 shimmer",
+                      "lg:col-span-6 rounded-xs border bg-canvas p-6 shadow-xs transition-all duration-200",
                       isSelected
-                        ? "border-accent ring-1 ring-accent shadow-[0_4px_24px_rgba(80,114,147,0.15)]"
+                        ? "border-accent ring-1 ring-accent"
                         : "border-line hover:border-line-strong",
                       !isEven && "lg:order-2"
                     )}
@@ -173,7 +173,7 @@ export function InteractiveSvgTimeline() {
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-2.5">
                         <div className={cn(
-                          "h-8 w-8 rounded border flex items-center justify-center font-bold text-xs font-mono",
+                          "h-8 w-8 rounded-xs border flex items-center justify-center font-bold text-xs font-mono",
                           step.accent === "success" && "border-success-light bg-success-bg text-success",
                           step.accent === "gold" && "border-gold-light bg-gold-bg text-gold",
                           step.accent === "accent" && "border-accent-light bg-accent-bg text-accent"
@@ -214,7 +214,7 @@ export function InteractiveSvgTimeline() {
                   {/* Step Image Visual Preview */}
                   <div
                     className={cn(
-                      "lg:col-span-6 relative h-56 sm:h-64 rounded-lg border border-line overflow-hidden bg-canvas-alt shadow-sm group",
+                      "lg:col-span-6 relative h-56 sm:h-64 rounded-xs border border-line overflow-hidden bg-canvas-alt shadow-xs group",
                       !isEven && "lg:order-1"
                     )}
                   >
@@ -228,7 +228,7 @@ export function InteractiveSvgTimeline() {
                     <div className="absolute inset-0 bg-gradient-to-t from-canvas/90 via-canvas/20 to-transparent" />
                     
                     <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs font-mono text-ink z-10">
-                      <span className="px-2 py-0.5 rounded border border-line/70 bg-canvas/90 backdrop-blur-sm text-[11px] font-bold">
+                      <span className="px-2 py-0.5 rounded-xs border border-line/70 bg-canvas/90 backdrop-blur-sm text-[11px] font-bold">
                         {step.phase} Architecture Artifact
                       </span>
                       <span className="text-success flex items-center gap-1">

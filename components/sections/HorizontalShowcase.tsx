@@ -143,7 +143,7 @@ export function HorizontalShowcase() {
       className="relative min-h-screen bg-canvas border-b border-line overflow-hidden flex flex-col justify-center py-16"
     >
       {/* Background Dot Grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#8C8F94_1px,transparent_1px)] [background-size:28px_28px] opacity-15 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(var(--accent)_1.1px,transparent_1.1px)] [background-size:28px_28px] opacity-18 dark:opacity-10 pointer-events-none" />
 
       {/* Top Header & Horizontal Navigation Info */}
       <Container className="relative z-10 mb-8">
@@ -192,7 +192,7 @@ export function HorizontalShowcase() {
             return (
               <div
                 key={proj.id}
-                className="w-[88vw] sm:w-[580px] lg:w-[680px] shrink-0 rounded-lg border border-line bg-canvas overflow-hidden shadow-sm transition-all duration-300 hover:border-line-strong hover:shadow-md shimmer flex flex-col justify-between"
+                className="w-[88vw] sm:w-[580px] lg:w-[680px] shrink-0 rounded-xs border border-line bg-canvas overflow-hidden shadow-xs transition-all duration-200 hover:border-line-strong flex flex-col justify-between"
               >
                 {/* Image Showcase Banner */}
                 <div className="relative h-60 sm:h-72 w-full overflow-hidden bg-canvas-alt border-b border-line group">
@@ -213,7 +213,7 @@ export function HorizontalShowcase() {
                     <Badge variant={proj.accent} size="sm">
                       {proj.category}
                     </Badge>
-                    <span className="h-7 w-7 rounded-full border border-line/80 bg-canvas/90 backdrop-blur-sm flex items-center justify-center text-ink text-xs font-mono font-bold">
+                    <span className="h-7 w-7 rounded-xs border border-line/80 bg-canvas/90 backdrop-blur-sm flex items-center justify-center text-ink text-xs font-mono font-bold">
                       0{idx + 1}
                     </span>
                   </div>
@@ -233,7 +233,7 @@ export function HorizontalShowcase() {
                   </p>
 
                   {/* Metrics 3-Column Grid */}
-                  <div className="grid grid-cols-3 gap-3 p-3.5 rounded-md border border-line bg-canvas-alt/70 mb-6">
+                  <div className="grid grid-cols-3 gap-3 p-3.5 rounded-xs border border-line bg-canvas-alt/70 mb-6">
                     {proj.metrics.map((m) => (
                       <div key={m.label} className="text-center">
                         <div className="text-sm sm:text-base font-bold font-mono text-ink tracking-tight">
@@ -253,14 +253,14 @@ export function HorizontalShowcase() {
                       {proj.stack.map((tech) => (
                         <span
                           key={tech}
-                          className="inline-flex items-center rounded border border-line bg-canvas-alt px-2 py-0.5 text-[10px] font-mono text-ink-muted"
+                          className="inline-flex items-center rounded-xs border border-line bg-canvas-alt px-2 py-0.5 text-[10px] font-mono text-ink-muted"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    <span className="text-xs font-semibold text-accent flex items-center gap-1">
+                    <span className="text-xs font-semibold text-accent flex items-center gap-1 font-mono">
                       Case Study <ArrowUpRight01Icon size={14} />
                     </span>
                   </div>

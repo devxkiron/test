@@ -119,48 +119,116 @@ export const services = [
   },
 ];
 
-export const caseStudies = [
+export interface CaseStudyItem {
+  id: string;
+  category: "Custom Projects" | "Automation Projects";
+  tag: string;
+  title: string;
+  client: string;
+  description?: string;
+  painPoint: string;
+  solution: string;
+  metrics: { label: string; value: string; delta: string }[];
+  stack: string[];
+  accent: "accent" | "success" | "gold" | "warm" | "rose";
+}
+
+export const caseStudies: CaseStudyItem[] = [
   {
-    id: "logistics",
-    tag: "Automation + Backend",
-    title: "Logistics SaaS: From 40hrs/week manual ops to 2hrs",
-    description:
-      "A regional freight broker was manually reconciling shipment data across 4 platforms. We built a unified webhook ingestion layer with n8n orchestration that automated 95% of the process.",
+    id: "logistics-dispatch",
+    category: "Automation Projects",
+    tag: "Autonomous Dispatch",
+    title: "Regional Freight Broker: 40 hrs/week manual ops reduced to 2 hrs",
+    client: "NorthStar Logistics",
+    painPoint: "Dispatchers spent 8 hours/day re-typing shipment details between email PDFs, Google Sheets, and carrier portals.",
+    solution: "Self-healing n8n webhook orchestration parsing incoming BOL docs, enriching shipment metrics, and auto-dispatching to drivers.",
     metrics: [
-      { label: "Hours Saved / Week", value: "38 hrs", delta: "+95%" },
-      { label: "Processing Time", value: "800ms", delta: "-94%" },
-      { label: "Error Rate", value: "0.02%", delta: "-99.8%" },
+      { label: "Hours Saved / Wk", value: "38 hrs", delta: "+95% efficiency" },
+      { label: "Processing Speed", value: "820 ms", delta: "-94% latency" },
+      { label: "Human Error Rate", value: "0.02%", delta: "99.8% reduction" },
     ],
-    stack: ["n8n", "Node.js", "PostgreSQL", "Redis", "Webhooks"],
-    accent: "gold" as const,
+    stack: ["n8n", "Node.js", "PostgreSQL", "Webhooks", "Redis"],
+    accent: "gold",
   },
   {
-    id: "fintech",
-    tag: "Frontend + Backend",
-    title: "FinTech Dashboard: Sub-second real-time data at scale",
-    description:
-      "A B2B FinTech client needed a real-time portfolio analytics dashboard serving 5,000 concurrent users. We delivered a WebSocket-powered Next.js app with a Kafka streaming backend.",
+    id: "fintech-reconciliation",
+    category: "Automation Projects",
+    tag: "Financial Ledger Sync",
+    title: "Multi-Bank Invoicing & Automatic Stripe Reconciliation",
+    client: "Apex Capital Partners",
+    painPoint: "Finance managers manually matched 3,000+ monthly wire transfers and Stripe charges in Excel, causing 4-day closing delays.",
+    solution: "Autonomous idempotency ledger syncing Stripe, Plaid, and QuickBooks every 60 seconds with automated discrepancy flagging.",
     metrics: [
-      { label: "Data Refresh Latency", value: "< 80ms", delta: "-97%" },
-      { label: "Concurrent Users", value: "5,000+", delta: "+500%" },
-      { label: "Bounce Rate", value: "12%", delta: "-68%" },
+      { label: "Month-End Close", value: "3 hours", delta: "Down from 4 days" },
+      { label: "Auto Match Rate", value: "99.94%", delta: "100% audited" },
+      { label: "Annual Labor Saved", value: "$48.5k", delta: "Direct ROI" },
     ],
-    stack: ["Next.js", "Kafka", "WebSockets", "PostgreSQL", "Redis"],
-    accent: "accent" as const,
+    stack: ["TypeScript", "Stripe API", "Plaid", "PostgreSQL", "Make.com"],
+    accent: "success",
   },
   {
-    id: "b2b",
-    tag: "Full Stack Automation",
-    title: "B2B SaaS: 0 → $180k ARR with automated client pipeline",
-    description:
-      "We built the entire sales automation mesh for a B2B SaaS startup — from lead capture to CRM enrichment, automated proposal generation, and contract signing workflows.",
+    id: "patient-intake",
+    category: "Automation Projects",
+    tag: "HIPAA Intake Pipeline",
+    title: "Medical Practice: Zero-Touch Patient Intake & Insurance Verification",
+    client: "Solace Health Clinics",
+    painPoint: "Front desk staff spent 25 minutes per new patient verifying insurance eligibility via phone and scanning paperwork.",
+    solution: "Encrypted patient portal with instant OCR extraction and automated insurance payer clearinghouse verification in under 3 seconds.",
     metrics: [
-      { label: "ARR Reached", value: "$180k", delta: "from $0" },
-      { label: "Sales Cycle", value: "4 days", delta: "-72%" },
-      { label: "CAC Reduction", value: "61%", delta: "lower" },
+      { label: "Check-in Time", value: "45 sec", delta: "-88% wait time" },
+      { label: "Verification Latency", value: "2.1s", delta: "Instant" },
+      { label: "Weekly Admin Time", value: "26 hrs", delta: "Reclaimed" },
     ],
-    stack: ["HubSpot", "Make.com", "Stripe", "Notion", "Next.js"],
-    accent: "success" as const,
+    stack: ["Next.js", "HIPAA Vault", "n8n", "PostgreSQL", "Twilio SMS"],
+    accent: "accent",
+  },
+  {
+    id: "b2b-analytics-platform",
+    category: "Custom Projects",
+    tag: "Real-Time Web Platform",
+    title: "High-Frequency B2B Portfolio Analytics Platform",
+    client: "VentureScale Global",
+    painPoint: "Legacy reporting dashboard crashed under 500 concurrent users with 12-second page load times.",
+    solution: "Sub-second Next.js 16 App Router platform with WebSocket streaming backend and distributed Redis caching.",
+    metrics: [
+      { label: "Page Load Time", value: "0.42s", delta: "-96% latency" },
+      { label: "Concurrent Users", value: "10,000+", delta: "10x scale" },
+      { label: "Core Web Vitals", value: "100/100", delta: "Perfect score" },
+    ],
+    stack: ["Next.js 16", "React 19", "Kafka", "WebSockets", "Tailwind CSS"],
+    accent: "accent",
+  },
+  {
+    id: "custom-erp-hub",
+    category: "Custom Projects",
+    tag: "Internal Operations Hub",
+    title: "Custom Manufacturing Operations & Inventory Hub",
+    client: "IronClad Machinery",
+    painPoint: "Shop floor relied on paper job tickets and 10-year-old on-prem software with no remote access.",
+    solution: "Tailored responsive web application integrating barcode scanning, live assembly line tracking, and automatic parts ordering.",
+    metrics: [
+      { label: "Production Throughput", value: "+34%", delta: "Measured gain" },
+      { label: "Inventory Shrinkage", value: "< 0.1%", delta: "-91% loss" },
+      { label: "Onboarding Time", value: "1 day", delta: "Down from 2 wks" },
+    ],
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Docker", "GSAP"],
+    accent: "warm",
+  },
+  {
+    id: "edge-commerce",
+    category: "Custom Projects",
+    tag: "High-Velocity Commerce",
+    title: "Sub-Second Global Commerce Platform with Optimistic UI",
+    client: "Krypton Retail",
+    painPoint: "High bounce rates on mobile checkout costing an estimated $60,000 in monthly lost cart checkouts.",
+    solution: "Zero-bundle-bloat edge storefront with optimistic UI mutations and sub-50ms global API response times.",
+    metrics: [
+      { label: "Checkout Conversion", value: "+41.2%", delta: "Validated" },
+      { label: "Global Edge P99", value: "38 ms", delta: "Sub-50ms" },
+      { label: "Bounce Rate", value: "9.4%", delta: "-64% drop" },
+    ],
+    stack: ["Next.js 16", "Server Components", "Tailwind CSS", "Stripe Checkout"],
+    accent: "success",
   },
 ];
 

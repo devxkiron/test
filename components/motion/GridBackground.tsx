@@ -24,24 +24,36 @@ export function GridBackground({ className }: GridBackgroundProps) {
   }, []);
 
   return (
-    <div className={cn("absolute inset-0 overflow-hidden", className)} aria-hidden="true">
-      {/* SVG dot grid */}
+    <div className={cn("absolute inset-0 overflow-hidden pointer-events-none", className)} aria-hidden="true">
+      {/* SVG grid with calibrated light mode and dark mode visibility */}
       <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <pattern id="grid-pattern" width="32" height="32" patternUnits="userSpaceOnUse">
-            <circle cx="1" cy="1" r="0.8" className="fill-line-strong/40" />
+          <pattern id="grid-pattern" width="36" height="36" patternUnits="userSpaceOnUse">
+            <path
+              d="M 36 0 L 0 0 0 36"
+              fill="none"
+              stroke="var(--line-strong)"
+              strokeWidth="0.75"
+              className="opacity-35 dark:opacity-15"
+            />
+            <circle
+              cx="0"
+              cy="0"
+              r="1.0"
+              className="fill-accent opacity-45 dark:opacity-20"
+            />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#grid-pattern)" />
       </svg>
 
-      {/* Mouse-tracking spotlight — muted accent blue */}
+      {/* Mouse-tracking spotlight */}
       <div
         ref={spotRef}
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(80,114,147,0.04) 0%, transparent 70%)",
+            "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(80,114,147,0.06) 0%, transparent 70%)",
         }}
       />
     </div>

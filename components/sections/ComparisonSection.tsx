@@ -54,10 +54,10 @@ export function ComparisonSection() {
         {/* Side by side comparison cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Before */}
-          <div className="rounded-lg border border-line bg-canvas overflow-hidden shimmer flex flex-col justify-between">
+          <div className="rounded-xs border border-line bg-canvas overflow-hidden flex flex-col justify-between shadow-xs">
             <div className="flex items-center justify-between px-5 py-4 border-b border-line bg-canvas-alt/50">
               <div className="flex items-center gap-2.5">
-                <div className="h-2 w-2 rounded-full bg-ink-faint" />
+                <div className="h-2 w-2 rounded-xs bg-ink-faint" />
                 <span className="text-sm font-semibold text-ink">Manual Operations (Before)</span>
               </div>
               <span className="text-xs font-mono text-ink-muted uppercase">Status Quo</span>
@@ -72,7 +72,7 @@ export function ComparisonSection() {
                   <div
                     key={i}
                     className={cn(
-                      "flex items-start gap-3.5 rounded-md border p-3.5 text-sm transition-all duration-150 cursor-pointer",
+                      "flex items-start gap-3.5 rounded-xs border p-3.5 text-sm transition-all duration-150 cursor-pointer",
                       isHovered
                         ? "border-line-strong bg-canvas-alt"
                         : "border-line/60 bg-canvas hover:border-line"
@@ -80,7 +80,7 @@ export function ComparisonSection() {
                     onMouseEnter={() => setActiveRow(i)}
                     onMouseLeave={() => setActiveRow(null)}
                   >
-                    <div className="h-6 w-6 rounded border border-line bg-canvas-alt flex items-center justify-center shrink-0 mt-0.5 text-ink-muted">
+                    <div className="h-6 w-6 rounded-xs border border-line bg-canvas-alt flex items-center justify-center shrink-0 mt-0.5 text-ink-muted">
                       <Icon size={14} />
                     </div>
                     <div className="flex-1">
@@ -102,10 +102,10 @@ export function ComparisonSection() {
           </div>
 
           {/* After */}
-          <div className="rounded-lg border border-accent/40 bg-canvas overflow-hidden shimmer flex flex-col justify-between shadow-[0_2px_24px_rgba(80,114,147,0.08)]">
+          <div className="rounded-xs border border-accent/40 bg-canvas overflow-hidden flex flex-col justify-between shadow-xs">
             <div className="flex items-center justify-between px-5 py-4 border-b border-accent/20 bg-accent-bg">
               <div className="flex items-center gap-2.5">
-                <div className="h-2 w-2 rounded-full bg-success animate-pulse" />
+                <div className="h-2 w-2 rounded-xs bg-success animate-pulse" />
                 <span className="text-sm font-semibold text-ink">Autonomous Velocity (After)</span>
               </div>
               <span className="text-xs font-mono text-accent font-semibold uppercase">Engineered</span>
@@ -120,7 +120,7 @@ export function ComparisonSection() {
                   <div
                     key={i}
                     className={cn(
-                      "flex items-start gap-3.5 rounded-md border p-3.5 text-sm transition-all duration-150 cursor-pointer",
+                      "flex items-start gap-3.5 rounded-xs border p-3.5 text-sm transition-all duration-150 cursor-pointer",
                       isHovered
                         ? "border-accent bg-accent-bg"
                         : "border-line bg-canvas hover:border-accent/40"
@@ -128,7 +128,7 @@ export function ComparisonSection() {
                     onMouseEnter={() => setActiveRow(i)}
                     onMouseLeave={() => setActiveRow(null)}
                   >
-                    <div className="h-6 w-6 rounded border border-success/30 bg-success-bg flex items-center justify-center shrink-0 mt-0.5 text-success">
+                    <div className="h-6 w-6 rounded-xs border border-success/30 bg-success-bg flex items-center justify-center shrink-0 mt-0.5 text-success">
                       <Icon size={14} />
                     </div>
                     <div className="flex-1">
@@ -157,14 +157,14 @@ export function ComparisonSection() {
             { label: "Data sync latency", before: "Hours / Days", after: "< 120 ms", change: "Real-time" },
             { label: "Human exception rate", before: "~6.8%", after: "0.02%", change: "99.7% reduction" },
           ].map((m) => (
-            <div key={m.label} className="rounded-lg border border-line bg-canvas p-4 text-center shimmer">
+            <div key={m.label} className="rounded-xs border border-line bg-canvas p-4 text-center shadow-xs">
               <div className="text-xs text-ink-muted mb-2 font-mono">{m.label}</div>
               <div className="flex items-center justify-center gap-2 text-sm">
                 <span className="text-ink-ghost line-through font-mono">{m.before}</span>
                 <span className="text-ink-muted">→</span>
                 <span className="font-bold text-ink font-mono">{m.after}</span>
               </div>
-              <div className="text-[11px] text-accent mt-1 font-medium">{m.change}</div>
+              <div className="text-[11px] text-accent mt-1 font-medium font-mono">{m.change}</div>
             </div>
           ))}
         </div>
