@@ -1,154 +1,88 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Syne:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;400;500;600;700;1,9..40,400&family=Fira+Code:wght@400;500;600&display=swap");
 @import "tailwindcss";
 
-/* ─── Tailwind v4 Theme Tokens Binding to CSS Variables ──────────────── */
+/* ─── Tailwind v4 Theme Tokens for Goodspeed Studio Palette ─────────── */
 @theme inline {
-  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-heading: "Syne", "Manrope", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Syne", "Space Grotesk", sans-serif;
+  --font-mono: "Fira Code", monospace;
 
   --color-canvas: var(--canvas);
   --color-canvas-alt: var(--canvas-alt);
   --color-canvas-subtle: var(--canvas-subtle);
+  --color-canvas-dark: var(--canvas-dark);
 
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
   --color-ink-faint: var(--ink-faint);
-  --color-ink-ghost: var(--ink-ghost);
 
   --color-line: var(--line);
-  --color-line-strong: var(--line-strong);
+  --color-line-dark: var(--line-dark);
 
-  /* Steel / Slate Accent */
-  --color-accent: var(--accent);
-  --color-accent-dark: var(--accent-dark);
-  --color-accent-light: var(--accent-light);
-  --color-accent-bg: var(--accent-bg);
+  /* Goodspeed Signature Electric Lime */
+  --color-lime: #D4FF00;
+  --color-lime-dark: #B8E000;
+  --color-lime-bg: rgba(212, 255, 0, 0.15);
 
-  /* Sage / Forest Success */
-  --color-success: var(--success);
-  --color-success-dark: var(--success-dark);
-  --color-success-light: var(--success-light);
-  --color-success-bg: var(--success-bg);
-
-  /* Champagne / Gold */
-  --color-gold: var(--gold);
-  --color-gold-dark: var(--gold-dark);
-  --color-gold-light: var(--gold-light);
-  --color-gold-bg: var(--gold-bg);
-
-  /* Muted Rose */
-  --color-rose: var(--rose-c);
-  --color-rose-dark: var(--rose-dark);
-  --color-rose-light: var(--rose-light);
-  --color-rose-bg: var(--rose-bg);
-
-  /* Warm Bronze */
-  --color-warm: var(--warm);
-  --color-warm-dark: var(--warm-dark);
-  --color-warm-light: var(--warm-light);
-  --color-warm-bg: var(--warm-bg);
+  /* Forest Olive */
+  --color-forest: #14221A;
+  --color-forest-light: #1A2B21;
+  --color-forest-border: #243B2E;
 }
 
-/* ─── Light Mode Theme System (Centralized & Fully Maintainable) ───────── */
+/* ─── Light Mode (Goodspeed Cream / Warm Ivory) ──────────────────────── */
 :root {
-  /* Background & Surface Levels */
-  --canvas: #FFFFFF;
-  --canvas-glass: rgba(255, 255, 255, 0.82);
-  --canvas-alt: #F3F4F5;
-  --canvas-subtle: #E5E7EA;
+  --canvas: #F9F7F2;
+  --canvas-glass: rgba(249, 247, 242, 0.92);
+  --canvas-alt: #F1ECE2;
+  --canvas-subtle: #E6DFD0;
+  --canvas-dark: #14221A;
 
-  /* Typography Colors */
-  --ink: #1A1A1A;
-  --ink-muted: #646367;
-  --ink-faint: #8C8F94;
-  --ink-ghost: #9C9FA4;
+  /* High contrast ink colors for crisp text readability */
+  --ink: #0D140F;
+  --ink-muted: #2E3831;
+  --ink-faint: #526055;
 
-  /* Border & Divider Strokes */
-  --line: #D9DCE0;
-  --line-strong: #CED1D6;
+  --line: #DFD8CA;
+  --line-dark: #243B2E;
 
-  /* Steel Accent (#507293, #395570, #DDE6F2, #F6F9FD) */
-  --accent: #507293;
-  --accent-dark: #395570;
-  --accent-light: #DDE6F2;
-  --accent-bg: #F6F9FD;
+  --lime-accent: #D4FF00;
 
-  /* Sage Success (#4B8C5E, #2D593C, #DEEADB, #F4F8F4) */
-  --success: #4B8C5E;
-  --success-dark: #2D593C;
-  --success-light: #DEEADB;
-  --success-bg: #F4F8F4;
-
-  /* Gold (#B59A4E, #685B2D, #EFE7CC, #FAF8EE) */
-  --gold: #B59A4E;
-  --gold-dark: #685B2D;
-  --gold-light: #EFE7CC;
-  --gold-bg: #FAF8EE;
-
-  /* Rose (#B96D7C, #6F3743, #EED8DC, #FAF0F2) */
-  --rose-c: #B96D7C;
-  --rose-dark: #6F3743;
-  --rose-light: #EED8DC;
-  --rose-bg: #FAF0F2;
-
-  /* Warm Bronze (#BD844F, #6D4D2B, #EFE1D0, #FAF4EC) */
-  --warm: #BD844F;
-  --warm-dark: #6D4D2B;
-  --warm-light: #EFE1D0;
-  --warm-bg: #FAF4EC;
+  /* ── Controllable Border Radius (change this one value to adjust everything) ── */
+  --radius: 5px;
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-pill: 9999px;
 }
 
-/* ─── Dark Mode Theme System (Centralized & Fully Maintainable) ────────── */
+/* ─── Dark Mode (Refined Obsidian / Forest Green) ────────────────────── */
 .dark {
-  /* Background & Surface Levels */
-  --canvas: #1A1A1A;
-  --canvas-glass: rgba(18, 18, 22, 0.82);
-  --canvas-alt: #1A161A;
-  --canvas-subtle: #464349;
+  --canvas: #0E1612;
+  --canvas-glass: rgba(14, 22, 18, 0.92);
+  --canvas-alt: #15221B;
+  --canvas-subtle: #1C2D24;
+  --canvas-dark: #0B120E;
 
-  /* Typography Colors */
-  --ink: #E5E7EA;
-  --ink-muted: #BFC3C8;
-  --ink-faint: #9C9FA4;
-  --ink-ghost: #65646A;
+  --ink: #F8FAF9;
+  --ink-muted: #CBD7CE;
+  --ink-faint: #8FA193;
 
-  /* Border & Divider Strokes */
-  --line: #464349;
-  --line-strong: #65646A;
+  --line: #22352A;
+  --line-dark: #192820;
 
-  /* Steel Accent in Dark */
-  --accent: #507293;
-  --accent-dark: #DDE6F2;
-  --accent-light: #395570;
-  --accent-bg: rgba(80, 114, 147, 0.16);
+  --lime-accent: #D4FF00;
 
-  /* Sage Success in Dark */
-  --success: #4B8C5E;
-  --success-dark: #DEEADB;
-  --success-light: #2D593C;
-  --success-bg: rgba(75, 140, 94, 0.16);
-
-  /* Gold in Dark */
-  --gold: #B59A4E;
-  --gold-dark: #EFE7CC;
-  --gold-light: #685B2D;
-  --gold-bg: rgba(181, 154, 78, 0.16);
-
-  /* Rose in Dark */
-  --rose-c: #B96D7C;
-  --rose-dark: #EED8DC;
-  --rose-light: #6F3743;
-  --rose-bg: rgba(185, 109, 124, 0.16);
-
-  /* Warm Bronze in Dark */
-  --warm: #BD844F;
-  --warm-dark: #EFE1D0;
-  --warm-light: #6D4D2B;
-  --warm-bg: rgba(189, 132, 79, 0.16);
+  --radius: 5px;
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-pill: 9999px;
 }
 
-/* ─── Global Reset & Base Elements ─────────────────────────────────────── */
+/* ─── Global Reset & Typography ──────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -162,125 +96,52 @@ html {
 body {
   background-color: var(--canvas);
   color: var(--ink);
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;
-  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Inter", system-ui, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   color: var(--ink);
+  font-weight: 800;
 }
 
 code, pre, .font-mono {
-  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-family: var(--font-mono);
+  font-feature-settings: "liga" 1, "calt" 1;
 }
 
-/* ─── Base Typography ─────────────────────────────────────────────────── */
-html, body {
-  font-family: var(--font-sans), sans-serif;
-  letter-spacing: -0.015em;
+/* ─── Goodspeed Signature Lime Pill Button ───────────────────────────── */
+.btn-lime {
+  background-color: #D4FF00;
+  color: #111813;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading), sans-serif;
-  letter-spacing: -0.025em;
-  font-feature-settings: "ss01", "ss02";
+.btn-lime:hover {
+  background-color: #BEE600;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(212, 255, 0, 0.35);
 }
 
-code, pre, .font-mono {
-  font-family: var(--font-mono), monospace;
+.btn-lime:active {
+  transform: translateY(0);
 }
 
-/* ─── Custom Scrollbar ─────────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
-
-/* ─── Selection & Focus ────────────────────────────────────────────────── */
-::selection {
-  background: rgba(80, 114, 147, 0.25);
-  color: inherit;
+/* ─── Clean Glass Navigation ─────────────────────────────────────────── */
+.glass-nav-cream {
+  background: var(--canvas-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line);
 }
 
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-/* ─── Liquid Glass Aesthetics ─────────────────────────────────────────── */
-.liquid-glass {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 
-    0 10px 30px 0 rgba(0, 0, 0, 0.06),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.8),
-    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.03);
-}
-
-.dark .liquid-glass {
-  background: rgba(18, 18, 22, 0.72);
-  backdrop-filter: blur(20px) saturate(190%);
-  -webkit-backdrop-filter: blur(20px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 
-    0 12px 40px 0 rgba(0, 0, 0, 0.6),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4);
-}
-
-/* ─── Luminous Specular Shimmer on Hover & Active ─────────────────────── */
-.shimmer {
-  position: relative;
-  overflow: hidden;
-}
-
-.shimmer::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  transform: translateX(-120%) skewX(-15deg);
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.05) 30%,
-    rgba(255, 255, 255, 0.35) 50%,
-    rgba(255, 255, 255, 0.05) 70%,
-    transparent 100%
-  );
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
-  pointer-events: none;
-  border-radius: inherit;
-  opacity: 0;
-  z-index: 1;
-}
-
-:root:not(.dark) .shimmer:not(.bg-ink):not(.bg-accent):not(.bg-success)::after {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(80, 114, 147, 0.05) 30%,
-    rgba(80, 114, 147, 0.22) 50%,
-    rgba(80, 114, 147, 0.05) 70%,
-    transparent 100%
-  );
-}
-
-.shimmer:hover::after,
-.shimmer:focus-visible::after,
-.shimmer:active::after {
-  transform: translateX(120%) skewX(-15deg);
-  opacity: 1;
-}
-
-/* ─── Marquee Animation ────────────────────────────────────────────────── */
+/* ─── Marquee Animation ──────────────────────────────────────────────── */
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -294,31 +155,196 @@ code, pre, .font-mono {
   animation-play-state: paused;
 }
 
-/* ─── Range Slider Inputs ──────────────────────────────────────────────── */
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  cursor: pointer;
+/* ─── Radius Utility Classes (Controlled via CSS Variables) ──────────── */
+.r-sm  { border-radius: var(--radius-sm); }
+.r     { border-radius: var(--radius); }
+.r-md  { border-radius: var(--radius-md); }
+.r-lg  { border-radius: var(--radius-lg); }
+.r-xl  { border-radius: var(--radius-xl); }
+.r-pill { border-radius: var(--radius-pill); }
+
+/* ─── Background Patterns ────────────────────────────────────────────── */
+
+/* Dot Grid Pattern */
+.pattern-dots {
+  background-image: radial-gradient(circle, rgba(13, 20, 15, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Fine Grid Pattern */
+.pattern-grid {
+  background-image:
+    linear-gradient(rgba(13, 20, 15, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 20, 15, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* Diagonal Hatch Pattern */
+.pattern-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(13, 20, 15, 0.04) 10px,
+    rgba(13, 20, 15, 0.04) 11px
+  );
+}
+
+/* Cross Dot Pattern */
+.pattern-cross {
+  background-image:
+    radial-gradient(circle, rgba(13, 20, 15, 0.06) 1.2px, transparent 1.2px),
+    radial-gradient(circle, rgba(13, 20, 15, 0.06) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+/* ─── CSS Vertical Timeline ──────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--lime-accent), var(--line));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--lime-accent);
+  border: 3px solid var(--canvas);
+  box-shadow: 0 0 0 2px var(--lime-accent);
+  z-index: 1;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: -19px;
+  top: 14px;
+  width: 20px;
+  height: 2px;
   background: var(--line);
 }
 
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: 2px solid var(--canvas);
-  box-shadow: 0 0 8px rgba(80, 114, 147, 0.35);
-  cursor: pointer;
+/* ─── Parallax Helpers ───────────────────────────────────────────────── */
+.parallax-slow {
+  will-change: transform;
+  transition: transform 0.1s linear;
 }
 
-input[type="range"]::-moz-range-thumb {
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: 2px solid var(--canvas);
-  box-shadow: 0 0 8px rgba(80, 114, 147, 0.35);
-  cursor: pointer;
+.parallax-fast {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ─── Scroll Reveal Animations (CSS-only fallback) ───────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(212, 255, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px 6px rgba(212, 255, 0, 0.15);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* ─── React Flow Customizations ──────────────────────────────────────── */
+.react-flow__node {
+  border-radius: var(--radius) !important;
+}
+
+.react-flow__edge-path {
+  stroke: #D4FF00 !important;
+  stroke-width: 2 !important;
+}
+
+.react-flow__background pattern line {
+  stroke: #243B2E !important;
+}
+
+/* ─── Floating Animation ─────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 4s ease-in-out 1s infinite;
+}
+
+.animate-float-slow {
+  animation: float 6s ease-in-out infinite;
 }

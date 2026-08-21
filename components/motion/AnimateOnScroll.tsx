@@ -18,7 +18,7 @@ export function AnimateOnScroll({
   delay = 0,
   direction = "up",
   once = true,
-  threshold = 0.12,
+  threshold = 0.08,
 }: AnimateOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -26,6 +26,17 @@ export function AnimateOnScroll({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // If element is already in viewport on mount, show immediately
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      // Use requestAnimationFrame so the hidden state paints first,
+      // then transition to visible for a smooth entrance
+      requestAnimationFrame(() => {
+        setVisible(true);
+      });
+      if (once) return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -36,7 +47,7 @@ export function AnimateOnScroll({
           setVisible(false);
         }
       },
-      { threshold, rootMargin: "0px 0px -40px 0px" }
+      { threshold, rootMargin: "0px 0px -20px 0px" }
     );
 
     observer.observe(el);

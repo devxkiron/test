@@ -1,78 +1,50 @@
-import { VintageLoader } from "@/components/ui/VintageLoader";
 import { Navbar } from "@/components/sections/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { ExpandableCapabilities } from "@/components/sections/ExpandableCapabilities";
-import { HorizontalShowcase } from "@/components/sections/HorizontalShowcase";
-import { ParallaxTextSection } from "@/components/sections/ParallaxTextSection";
-import { CrowdAutomationSection } from "@/components/sections/CrowdAutomationSection";
-import { VideoDemoSection } from "@/components/sections/VideoDemoSection";
-import { ShowcaseScrollManualVsAuto } from "@/components/sections/ShowcaseScrollManualVsAuto";
-import { WorkflowPipeline } from "@/components/sections/WorkflowPipeline";
-import { InteractiveSvgTimeline } from "@/components/sections/InteractiveSvgTimeline";
-import { PhysicsSandbox } from "@/components/sections/PhysicsSandbox";
-import { ServicesGrid } from "@/components/sections/ServicesGrid";
-import { ComparisonSection } from "@/components/sections/ComparisonSection";
-import { TeamSection } from "@/components/sections/TeamSection";
-import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
-import { RoiCalculatorSection } from "@/components/sections/RoiCalculatorSection";
-import { ContactFooter } from "@/components/sections/ContactFooter";
+import { WorkSection } from "@/components/sections/WorkSection";
+import { ClientStoriesSection } from "@/components/sections/ClientStoriesSection";
+import { AutomationProcessSection } from "@/components/sections/AutomationProcessSection";
+import { SpecializationSection } from "@/components/sections/SpecializationSection";
+import { ImpactStatsSection } from "@/components/sections/ImpactStatsSection";
+import { TeamCultureSection } from "@/components/sections/TeamCultureSection";
+import { BookingCalendarSection } from "@/components/sections/BookingCalendarSection";
+import { FaqSection } from "@/components/sections/FaqSection";
+import { FooterSection } from "@/components/sections/FooterSection";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-canvas text-ink selection:bg-accent/20">
-      {/* System Initialization Loader */}
-      <VintageLoader />
-
-      {/* Notch Liquid Glass Navbar */}
+    <main className="min-h-screen bg-canvas text-ink selection:bg-[#D4FF00] selection:text-black">
+      {/* 1. Header Navigation */}
       <Navbar />
 
-      {/* Wave Grid Hero & Audio Story */}
+      {/* 2. Hero Section & Client Logo Ticker */}
       <HeroSection />
 
-      {/* Modular Architecture Capabilities */}
-      <ExpandableCapabilities />
+      {/* 3. Featured Case Studies & Stats */}
+      <WorkSection />
 
-      {/* Pinned Horizontal Showcase */}
-      <HorizontalShowcase />
+      {/* 4. Client Stories (Forest Green Testimonials) */}
+      <ClientStoriesSection />
 
-      {/* Kinetic Parallax Text Stream */}
-      <ParallaxTextSection />
+      {/* 5. Automation Framework (4-Step Live Interactive Cards) */}
+      <AutomationProcessSection />
 
-      {/* Live Distributed Task Mesh */}
-      <CrowdAutomationSection />
+      {/* 6. Specializations & Architecture Canvas */}
+      <SpecializationSection />
 
-      {/* Live Walkthrough & Architecture Player */}
-      <VideoDemoSection />
+      {/* 7. Impact Philosophy & Large Stat Cards */}
+      <ImpactStatsSection />
 
-      {/* Operational Transformation Showcase */}
-      <ShowcaseScrollManualVsAuto />
+      {/* 8. Team & Culture */}
+      <TeamCultureSection />
 
-      {/* Pipeline & Telemetry */}
-      <WorkflowPipeline />
+      {/* 9. Interactive Strategy Call Booking Calendar */}
+      <BookingCalendarSection />
 
-      {/* Interactive SVG Sequence */}
-      <InteractiveSvgTimeline />
+      {/* 10. Split FAQ Accordion */}
+      <FaqSection />
 
-      {/* Physics Sandbox */}
-      <PhysicsSandbox />
-
-      {/* Services Grid */}
-      <ServicesGrid />
-
-      {/* Architectural Comparison */}
-      <ComparisonSection />
-
-      {/* Principal Technical Leads */}
-      <TeamSection />
-
-      {/* Category-Wise Showcase (Custom vs Automation) */}
-      <CaseStudiesSection />
-
-      {/* ROI Model */}
-      <RoiCalculatorSection />
-
-      {/* Vengence UI: Animated Footer */}
-      <ContactFooter />
+      {/* 11. Forest Green Multi-Column Footer */}
+      <FooterSection />
     </main>
   );
 }
