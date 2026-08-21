@@ -9,10 +9,10 @@ export function VideoDemoSection() {
   return (
     <section className="py-24 bg-canvas border-b border-line select-none">
       <Container>
-        {/* Kinetic Horizontal Text Reveal (Skiper UI 72nd) */}
+        {/* Kinetic Horizontal Text Reveal */}
         <div className="mb-16 max-w-4xl mx-auto text-center">
           <Badge variant="accent" size="md" className="mb-4">
-            Skiper UI 72nd · Kinetic Reveal
+            Live System Walkthrough
           </Badge>
           <HorizontalTextReveal text="We eliminate repetitive spreadsheets, fragmented tools, and slow human copy-pasting by engineering reliable autonomous pipelines that scale your business effortlessly." />
         </div>

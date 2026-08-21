@@ -49,7 +49,7 @@ export function CaseStudiesSection() {
                 type="button"
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  "px-4 py-2 rounded-xs font-semibold transition-all duration-150 cursor-pointer",
+                  "px-4 py-2 rounded-xs font-semibold transition-all duration-150 cursor-pointer shimmer active:scale-95",
                   activeCategory === cat
                     ? "bg-accent text-canvas shadow-xs"
                     : "text-ink-muted hover:text-ink hover:bg-canvas-alt"

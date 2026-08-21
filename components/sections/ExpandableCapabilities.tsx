@@ -88,12 +88,12 @@ export function ExpandableCapabilities() {
   return (
     <section id="capabilities" className="py-24 bg-canvas border-b border-line overflow-hidden select-none">
       <Container>
-        <div className="mb-14 max-w-2xl">
+        <div className="mb-14 text-center max-w-2xl mx-auto">
           <Badge variant="accent" size="md" className="mb-4">
-            Skiper UI 35th · Expandable Grid
+            Modular Architecture Capabilities
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
-            Engineered disciplines. Hover to inspect.
+            Everything your business needs to operate autonomously.
           </h2>
           <p className="mt-3 text-ink-muted text-sm sm:text-base leading-relaxed">
             Hover over any pillar to expand complete architectural deliverables, runtime guarantees, and operational metrics.

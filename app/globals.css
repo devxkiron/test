@@ -236,7 +236,7 @@ code, pre, .font-mono {
     inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4);
 }
 
-/* ─── Ultra-Subtle Shimmer on Hover (Not constant, low opacity) ──── */
+/* ─── Luminous Specular Shimmer on Hover & Active ─────────────────────── */
 .shimmer {
   position: relative;
   overflow: hidden;
@@ -246,35 +246,37 @@ code, pre, .font-mono {
   content: '';
   position: absolute;
   inset: 0;
-  transform: translateX(-100%);
+  transform: translateX(-120%) skewX(-15deg);
   background: linear-gradient(
-    105deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.015) 45%,
-    rgba(255, 255, 255, 0.04) 50%,
-    rgba(255, 255, 255, 0.015) 55%,
-    transparent 65%
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.05) 70%,
+    transparent 100%
   );
-  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
   pointer-events: none;
   border-radius: inherit;
   opacity: 0;
+  z-index: 1;
 }
 
-:root:not(.dark) .shimmer::after {
+:root:not(.dark) .shimmer:not(.bg-ink):not(.bg-accent):not(.bg-success)::after {
   background: linear-gradient(
-    105deg,
-    transparent 35%,
-    rgba(0, 0, 0, 0.008) 45%,
-    rgba(0, 0, 0, 0.02) 50%,
-    rgba(0, 0, 0, 0.008) 55%,
-    transparent 65%
+    90deg,
+    transparent 0%,
+    rgba(80, 114, 147, 0.05) 30%,
+    rgba(80, 114, 147, 0.22) 50%,
+    rgba(80, 114, 147, 0.05) 70%,
+    transparent 100%
   );
 }
 
 .shimmer:hover::after,
-.shimmer:focus-visible::after {
-  transform: translateX(100%);
+.shimmer:focus-visible::after,
+.shimmer:active::after {
+  transform: translateX(120%) skewX(-15deg);
   opacity: 1;
 }
 

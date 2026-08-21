@@ -30,12 +30,12 @@ export function TeamSection() {
     <section id="team" className="py-24 bg-canvas border-b border-line">
       <Container>
         <div className="mb-14 text-center">
-          <Badge variant="accent" size="md" className="mb-4">The Senior Trio</Badge>
+          <Badge variant="accent" size="md" className="mb-4">Principal Technical Leads</Badge>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
-            Three principal engineers. Direct access.
+            Direct Access to Senior Specialists
           </h2>
           <p className="mt-3 text-ink-muted max-w-lg mx-auto text-sm sm:text-base">
-            No junior hand-offs, no bloated account teams. You interface directly with the 3 engineers designing and building your systems.
+            No junior hand-offs, no bloated account layers. You work directly with the dedicated engineers designing and building your systems.
           </p>
         </div>
 

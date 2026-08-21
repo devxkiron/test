@@ -259,7 +259,7 @@ export function ContactFooter() {
           {/* Bottom Copyright & Guarantee */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-6 text-xs font-mono text-ink-muted">
             <p>
-              © {new Date().getFullYear()} {siteConfig.name}. Senior Technical Trio · All Rights Reserved.
+              © {new Date().getFullYear()} {siteConfig.name}. Automation & Software Agency · All Rights Reserved.
             </p>
             <p className="text-ink-ghost">
               Engineered with Next.js 16 · Tailwind CSS · React 19

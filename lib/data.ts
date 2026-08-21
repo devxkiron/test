@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Veloce Studio",
   tagline: "Lifting the Heavy Work Off Your Business.",
   description:
-    "A 3-member technical agency delivering intelligent workflow automation and high-performance web applications to ambitious small and medium businesses.",
+    "A specialized technical agency delivering intelligent workflow automation and high-performance custom software to ambitious businesses.",
   email: "hello@veloce.studio",
   calendly: "https://calendly.com/veloce-studio/audit",
   founded: "2021",
@@ -313,8 +313,39 @@ export const navLinks = [
   { label: "Calculator", href: "#calculator" },
 ];
 
+export const customStack = [
+  { name: "Next.js 16", category: "Framework", tag: "App Router" },
+  { name: "React 19", category: "Frontend", tag: "UI Library" },
+  { name: "TypeScript", category: "Language", tag: "Type Safety" },
+  { name: "Node.js", category: "Runtime", tag: "Async Backend" },
+  { name: "Python", category: "Backend/AI", tag: "Microservices" },
+  { name: "PostgreSQL", category: "Database", tag: "ACID Relational" },
+  { name: "Redis", category: "Cache", tag: "In-Memory Hit" },
+  { name: "Tailwind CSS", category: "Styling", tag: "Design Tokens" },
+  { name: "Docker", category: "DevOps", tag: "Containers" },
+  { name: "GraphQL", category: "API", tag: "Schema Query" },
+  { name: "REST APIs", category: "API", tag: "High Throughput" },
+  { name: "Supabase", category: "BaaS", tag: "Realtime Data" },
+  { name: "GSAP", category: "Motion", tag: "Hardware Accel" },
+];
+
+export const automationStack = [
+  { name: "n8n", category: "Orchestrator", tag: "Self-Hosted Mesh" },
+  { name: "Zapier", category: "Integration", tag: "App Connector" },
+  { name: "Make.com", category: "Visual Automation", tag: "Multi-Route Logic" },
+  { name: "GoHighLevel (GHL)", category: "CRM & Funnels", tag: "Client Automation" },
+  { name: "Airtable", category: "Database/Ops", tag: "Relational Ops" },
+  { name: "Stripe API", category: "Payments", tag: "Billing Automation" },
+  { name: "HubSpot", category: "CRM", tag: "Sales & Marketing" },
+  { name: "OpenAI / AI Agents", category: "Intelligence", tag: "Autonomous Routing" },
+  { name: "Webhooks", category: "Event Pipeline", tag: "Zero-Latency Trigger" },
+  { name: "Slack API", category: "Notifications", tag: "Ops Alerts" },
+  { name: "Google Workspace", category: "Cloud Sync", tag: "Docs & Sheets API" },
+  { name: "Appwrite", category: "Backend Ops", tag: "Auth & Events" },
+];
+
 export const techMarquee = [
-  "Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Redis",
-  "Kafka", "Docker", "n8n", "Make.com", "Stripe API", "HubSpot",
-  "Terraform", "GSAP", "Tailwind CSS", "Webhooks", "GraphQL", "REST APIs",
+  "Next.js 16", "n8n", "React 19", "Zapier", "TypeScript", "Make.com",
+  "Node.js", "GoHighLevel", "PostgreSQL", "Airtable", "Redis", "Stripe API",
+  "HubSpot", "Docker", "Webhooks", "OpenAI Agents", "GraphQL", "Slack API",
 ];

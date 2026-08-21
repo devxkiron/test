@@ -99,8 +99,9 @@ export function AudioStoryPlayer({ className }: { className?: string }) {
 
   return (
     <div
+      onClick={togglePlay}
       className={cn(
-        "inline-flex items-center gap-3 border border-line bg-canvas-alt px-3.5 py-2 rounded-xs font-mono text-xs transition-all duration-200 hover:border-line-strong",
+        "inline-flex items-center gap-3 border border-line bg-canvas-alt px-3.5 py-2 rounded-xs font-mono text-xs transition-all duration-200 hover:border-line-strong cursor-pointer shimmer select-none active:scale-[0.98]",
         isPlaying && "border-accent ring-1 ring-accent/30 bg-canvas",
         className
       )}
@@ -108,8 +109,7 @@ export function AudioStoryPlayer({ className }: { className?: string }) {
       {/* Play/Pause Button */}
       <button
         type="button"
-        onClick={togglePlay}
-        className="flex h-7 w-7 items-center justify-center rounded-xs border border-line bg-canvas text-ink hover:bg-canvas-subtle transition-colors cursor-pointer"
+        className="flex h-7 w-7 items-center justify-center rounded-xs border border-line bg-canvas text-ink hover:bg-canvas-subtle transition-colors cursor-pointer shrink-0"
         aria-label={isPlaying ? "Pause story" : "Click to play our story"}
       >
         {isPlaying ? (

@@ -20,31 +20,31 @@ import { ContactFooter } from "@/components/sections/ContactFooter";
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-canvas text-ink selection:bg-accent/20">
-      {/* Skiper UI 9th: Page Loader */}
+      {/* System Initialization Loader */}
       <VintageLoader />
 
-      {/* Vengence UI: Notch Navbar */}
+      {/* Notch Liquid Glass Navbar */}
       <Navbar />
 
-      {/* Vengence UI: Wave Grid Hero + Skiper UI 25th: Audio Story */}
+      {/* Wave Grid Hero & Audio Story */}
       <HeroSection />
 
-      {/* Skiper UI 35th: Hover To Expand */}
+      {/* Modular Architecture Capabilities */}
       <ExpandableCapabilities />
 
       {/* Pinned Horizontal Showcase */}
       <HorizontalShowcase />
 
-      {/* Skiper UI 32nd: Parallax Text Scroll */}
+      {/* Kinetic Parallax Text Stream */}
       <ParallaxTextSection />
 
-      {/* Skiper UI 39th: Canvas Crowd Background */}
+      {/* Live Distributed Task Mesh */}
       <CrowdAutomationSection />
 
-      {/* Skiper UI 72nd: Horizontal Text Reveal + Skiper UI 67th: Video Player */}
+      {/* Live Walkthrough & Architecture Player */}
       <VideoDemoSection />
 
-      {/* Skiper UI 79th: Showcase Scroll (Manual Pain vs Automation) */}
+      {/* Operational Transformation Showcase */}
       <ShowcaseScrollManualVsAuto />
 
       {/* Pipeline & Telemetry */}
@@ -62,7 +62,7 @@ export default function HomePage() {
       {/* Architectural Comparison */}
       <ComparisonSection />
 
-      {/* The Senior Trio */}
+      {/* Principal Technical Leads */}
       <TeamSection />
 
       {/* Category-Wise Showcase (Custom vs Automation) */}

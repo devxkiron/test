@@ -7,7 +7,10 @@ import {
   Calendar01Icon, 
   Layers01Icon, 
   Shield01Icon, 
-  FlashIcon 
+  FlashIcon,
+  CpuIcon,
+  WorkflowSquare01Icon,
+  CheckmarkCircle01Icon
 } from "hugeicons-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -17,10 +20,14 @@ import { WaveGridBackground } from "@/components/motion/WaveGridBackground";
 import { MagneticElement } from "@/components/motion/MagneticElement";
 import { AudioStoryPlayer } from "@/components/ui/AudioStoryPlayer";
 import { AuditModal } from "@/components/ui/AuditModal";
-import { stats, techMarquee } from "@/lib/data";
+import { stats, customStack, automationStack } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 export function HeroSection() {
   const [auditOpen, setAuditOpen] = useState(false);
+  const [activeStackTab, setActiveStackTab] = useState<"custom" | "automation">("custom");
+
+  const currentStack = activeStackTab === "custom" ? customStack : automationStack;
 
   return (
     <>
@@ -31,19 +38,19 @@ export function HeroSection() {
         {/* Vengence UI: Wave Grid Hero Background */}
         <WaveGridBackground />
 
-        {/* Subtle Liquid Glass Ambient Blur Layer to guarantee effortless readability */}
+        {/* Subtle Liquid Glass Ambient Blur Layer */}
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_75%_75%_at_35%_45%,var(--canvas)_35%,transparent_100%)] opacity-95 dark:opacity-60 backdrop-blur-[0.08px]" />
 
         <Container className="relative z-10 py-12 lg:py-16 flex-1 flex flex-col justify-center">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Column (Content with crisp legibility) */}
+            {/* Left Column */}
             <div className="lg:col-span-6 max-w-2xl">
               <div className="mb-6 flex flex-wrap items-center gap-3">
                 <Badge variant="accent" dot pulse size="md">
-                  Senior Technical Trio
+                  Automation & Software Agency
                 </Badge>
-                <span className="text-xs text-ink-muted font-mono">
-                  Frontend · Backend · Automation
+                <span className="text-xs text-ink-muted font-mono font-medium">
+                  Custom and Automation Solutions
                 </span>
               </div>
 
@@ -89,7 +96,7 @@ export function HeroSection() {
                 </span>
               </div>
 
-              {/* Stats Row with Subtle Glass Backdrop */}
+              {/* Stats Row */}
               <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {stats.map((stat) => (
                   <div
@@ -106,20 +113,85 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Right Column with Subtle Glass Visual */}
+            {/* Right Column */}
             <div className="lg:col-span-6 relative w-full flex items-center justify-center">
               <HeroVisual />
             </div>
           </div>
         </Container>
 
-        {/* Tech Marquee Ribbon with Glass Surface */}
-        <div className="relative border-y border-line bg-canvas/80 backdrop-blur-md py-3 overflow-hidden">
-          <div className="flex w-max marquee-track gap-8 text-xs font-mono text-ink-muted tracking-normal">
-            {[...techMarquee, ...techMarquee].map((tech, index) => (
-              <div key={index} className="flex items-center gap-4">
-                <span>{tech}</span>
-                <span className="h-1 w-1 rounded-xs bg-line-strong" />
+        {/* Interactive Stack Switcher Section */}
+        <div className="relative border-y border-line bg-canvas/85 backdrop-blur-md py-4 overflow-hidden z-20 shadow-xs">
+          <Container>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-3">
+              {/* Stack Category Toggle Tabs */}
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-mono text-ink-muted uppercase mr-1 hidden sm:inline">
+                  Select Stack:
+                </span>
+                
+                {/* Custom Solutions Button */}
+                <button
+                  type="button"
+                  onClick={() => setActiveStackTab("custom")}
+                  className={cn(
+                    "flex items-center gap-2 px-3.5 py-1.5 rounded-xs text-xs font-mono transition-all duration-150 cursor-pointer shimmer active:scale-95",
+                    activeStackTab === "custom"
+                      ? "bg-accent text-white font-semibold shadow-xs"
+                      : "bg-canvas-alt text-ink-muted border border-line hover:text-ink hover:border-line-strong"
+                  )}
+                >
+                  <CpuIcon size={14} />
+                  <span>Custom Solutions</span>
+                </button>
+
+                {/* Automation Solutions Button */}
+                <button
+                  type="button"
+                  onClick={() => setActiveStackTab("automation")}
+                  className={cn(
+                    "flex items-center gap-2 px-3.5 py-1.5 rounded-xs text-xs font-mono transition-all duration-150 cursor-pointer shimmer active:scale-95",
+                    activeStackTab === "automation"
+                      ? "bg-success text-white font-semibold shadow-xs"
+                      : "bg-canvas-alt text-ink-muted border border-line hover:text-ink hover:border-line-strong"
+                  )}
+                >
+                  <WorkflowSquare01Icon size={14} />
+                  <span>Automation Solutions</span>
+                </button>
+              </div>
+
+              {/* Summary descriptor */}
+              <div className="text-xs font-mono text-ink-muted flex items-center gap-2">
+                <CheckmarkCircle01Icon
+                  size={14}
+                  className={activeStackTab === "custom" ? "text-accent" : "text-success"}
+                />
+                <span>
+                  {activeStackTab === "custom"
+                    ? "Full-stack web apps, sub-second latency & clean API layers"
+                    : "Zero-friction workflows (n8n, Zapier, Make, GHL, Stripe & APIs)"}
+                </span>
+              </div>
+            </div>
+          </Container>
+
+          {/* Active Dynamic Stack Marquee Track */}
+          <div className="flex w-max marquee-track gap-3 py-1 text-xs font-mono">
+            {[...currentStack, ...currentStack, ...currentStack].map((tech, index) => (
+              <div
+                key={`${tech.name}-${index}`}
+                className={cn(
+                  "flex items-center gap-2 px-3 py-1 rounded-xs border transition-colors",
+                  activeStackTab === "custom"
+                    ? "bg-canvas border-line text-ink hover:border-accent"
+                    : "bg-canvas border-line text-ink hover:border-success"
+                )}
+              >
+                <span className="font-semibold text-ink">{tech.name}</span>
+                <span className="text-[10px] text-ink-muted uppercase border-l border-line pl-1.5">
+                  {tech.category}
+                </span>
               </div>
             ))}
           </div>

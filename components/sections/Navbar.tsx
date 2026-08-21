@@ -176,7 +176,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setAuditOpen(true)}
-              className="hidden sm:inline-block text-xs font-medium text-ink-muted hover:text-ink transition-colors cursor-pointer"
+              className="hidden sm:inline-block text-xs font-medium text-ink-muted hover:text-ink transition-colors cursor-pointer shimmer px-2 py-1 rounded-xs"
             >
               Free Audit
             </button>
@@ -185,7 +185,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setAuditOpen(true)}
-              className="rounded-full bg-ink text-canvas font-semibold text-xs px-4 py-1.5 shadow-xs hover:opacity-90 transition-all cursor-pointer whitespace-nowrap active:scale-95"
+              className="rounded-full bg-ink text-canvas font-semibold text-xs px-4 py-1.5 shadow-xs hover:opacity-90 transition-all cursor-pointer whitespace-nowrap active:scale-95 shimmer"
             >
               Book Audit
             </button>

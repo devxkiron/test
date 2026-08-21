@@ -89,7 +89,7 @@ export function VintageLoader() {
 
       {/* Bottom Footer */}
       <div className="w-full flex items-center justify-between border-t border-line pt-3 font-mono text-xs text-ink-ghost">
-        <span>EST. 2021 · SENIOR TECHNICAL TRIO</span>
+        <span>EST. 2021 · AUTOMATION & SOFTWARE AGENCY</span>
         <span>AUTONOMOUS SYSTEMS</span>
       </div>
     </div>

@@ -110,11 +110,11 @@ export function ShowcaseScrollManualVsAuto() {
       <Container>
         {/* Section Header */}
         <div className="mb-14 text-center max-w-2xl mx-auto">
-          <Badge variant="accent" size="md" className="mb-4">
-            Skiper UI 79th · Showcase Scroll
+          <Badge variant="gold" size="md" className="mb-4">
+            Operational Transformation Matrix
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
-            Manual friction vs. autonomous leverage.
+            Manual friction vs. Autonomous velocity.
           </h2>
           <p className="mt-3 text-ink-muted text-sm sm:text-base leading-relaxed">
             Follow the journey from spreadsheet chaos to automated precision. Click or scroll through the stages below to inspect the transformation.
