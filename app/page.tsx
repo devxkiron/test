@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { WorkSection } from "@/components/sections/WorkSection";
 import { ClientStoriesSection } from "@/components/sections/ClientStoriesSection";
 import { AutomationProcessSection } from "@/components/sections/AutomationProcessSection";
+import { LiveDemoSection } from "@/components/sections/LiveDemoSection";
 import { SpecializationSection } from "@/components/sections/SpecializationSection";
 import { ImpactStatsSection } from "@/components/sections/ImpactStatsSection";
 import { TeamCultureSection } from "@/components/sections/TeamCultureSection";
@@ -16,17 +17,17 @@ export default function HomePage() {
       {/* 1. Header Navigation */}
       <Navbar />
 
-      {/* 2. Hero Section & Client Logo Ticker */}
+      {/* 2. Hero Section — Clean Agency Style */}
       <HeroSection />
 
       {/* 3. Featured Case Studies & Stats */}
       <WorkSection />
 
-      {/* 4. Client Stories (Forest Green Testimonials) */}
-      <ClientStoriesSection />
-
-      {/* 5. Automation Framework (4-Step Live Interactive Cards) */}
+      {/* 4. Automation Framework (4-Step Live Interactive Cards) */}
       <AutomationProcessSection />
+
+      {/* 5. Live AI Agent Interactive Demo */}
+      <LiveDemoSection />
 
       {/* 6. Specializations & Architecture Canvas */}
       <SpecializationSection />
@@ -37,14 +38,19 @@ export default function HomePage() {
       {/* 8. Team & Culture */}
       <TeamCultureSection />
 
-      {/* 9. Interactive Strategy Call Booking Calendar */}
+      {/* 9. Client Stories (Forest Green Testimonials) */}
+      <ClientStoriesSection />
+
+      {/* 10. Interactive Strategy Call Booking Calendar */}
       <BookingCalendarSection />
 
-      {/* 10. Split FAQ Accordion */}
+      {/* 11. Split FAQ Accordion */}
       <FaqSection />
 
-      {/* 11. Forest Green Multi-Column Footer */}
+      {/* 12. Forest Green Multi-Column Footer */}
       <FooterSection />
     </main>
   );
 }
+
+

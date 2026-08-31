@@ -5,28 +5,33 @@ import { Container } from "@/components/ui/Container";
 import { siteConfig, clientLogos } from "@/lib/data";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ZenPrimaryButton, ZenSecondaryButton } from "@/components/ui/ZenButton";
-import { HeroInteractiveDemo } from "@/components/sections/HeroInteractiveDemo";
+import { StarIcon } from "@/components/icons";
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const badgeRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtextRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const previewRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     if (!sectionRef.current) return;
 
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    // Staggered hero entrance — immediate on load, no scroll trigger
     tl.fromTo(
-      headlineRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.9 }
+      badgeRef.current,
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6 }
     )
+      .fromTo(
+        headlineRef.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.9 },
+        "-=0.3"
+      )
       .fromTo(
         subtextRef.current,
         { y: 30, opacity: 0 },
@@ -40,61 +45,80 @@ export function HeroSection() {
         "-=0.4"
       )
       .fromTo(
-        previewRef.current,
-        { scale: 0.9, opacity: 0, y: 30 },
-        { scale: 1, opacity: 1, y: 0, duration: 0.8 },
-        "-=0.5"
+        statsRef.current,
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6 },
+        "-=0.3"
       );
-
-    // Parallax on scroll — preview floats up
-    gsap.to(previewRef.current, {
-      yPercent: -15,
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1.2,
-      },
-    });
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="relative pt-28 sm:pt-36 pb-0 overflow-hidden bg-canvas pattern-dots">
+    <section ref={sectionRef} className="relative pt-32 sm:pt-40 pb-0 overflow-hidden bg-canvas pattern-dots">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center pb-16 sm:pb-20">
-          {/* Left Column: Headline & CTAs */}
-          <div className="lg:col-span-7 flex flex-col items-start max-w-2xl">
-            <h1
-              ref={headlineRef}
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-ink mb-6 sm:mb-8 leading-[1.08] opacity-0"
-            >
-              We build AI agents to future-proof your business
-            </h1>
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto pb-16 sm:pb-24">
 
-            <p
-              ref={subtextRef}
-              className="text-base sm:text-lg text-ink-muted leading-relaxed mb-8 sm:mb-10 max-w-xl opacity-0"
-            >
-              We turn AI from talked about to rolled out. Custom AI products, intelligent workflow automations, and internal tools shipped in weeks.
-            </p>
-
-            <div ref={ctaRef} className="flex flex-wrap items-center gap-4 sm:gap-6 opacity-0">
-              <ZenPrimaryButton href="#book" className="px-8 py-3 text-sm">
-                Get Started
-              </ZenPrimaryButton>
-
-              <ZenSecondaryButton href={`mailto:${siteConfig.email}`} className="px-6 py-3 text-sm font-bold">
-                Let&apos;s chat
-              </ZenSecondaryButton>
-            </div>
+          {/* Trust Badge */}
+          <div
+            ref={badgeRef}
+            className="inline-flex items-center gap-2 px-4 py-1.5 r-pill bg-canvas-alt border border-line text-xs font-mono font-bold text-ink-muted mb-6 sm:mb-8 opacity-0"
+          >
+            <span className="text-ink font-extrabold">AI Development Agency</span>
+            <span className="w-1 h-1 rounded-full bg-ink-muted" />
+            <span className="flex items-center gap-1">
+              <StarIcon size={12} className="text-[#FBBF24] fill-[#FBBF24]" />
+              {siteConfig.clutchRating} Clutch
+            </span>
+            <span className="w-1 h-1 rounded-full bg-ink-muted" />
+            <span>{siteConfig.clutchReviewsCount} Reviews</span>
           </div>
 
-          {/* Right Column: Interactive AI Agent Live Runner */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div ref={previewRef} className="w-full max-w-md opacity-0">
-              <HeroInteractiveDemo />
-            </div>
+          {/* Main Headline */}
+          <h1
+            ref={headlineRef}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink mb-6 sm:mb-8 leading-[1.06] opacity-0"
+          >
+            We Build Software That Runs Your Business{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 via-lime to-[#B8E000]">
+              on Autopilot
+            </span>
+          </h1>
+
+          {/* Subtext */}
+          <p
+            ref={subtextRef}
+            className="text-base sm:text-lg md:text-xl text-ink-muted leading-relaxed mb-8 sm:mb-10 max-w-2xl opacity-0"
+          >
+            From AI-powered tools to custom automation — we help ambitious companies
+            save thousands of hours, cut costs, and scale faster.
+            No buzzwords, just production software.
+          </p>
+
+          {/* CTAs */}
+          <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 mb-12 sm:mb-14 opacity-0">
+            <ZenPrimaryButton href="#book" className="px-8 py-3.5 text-sm">
+              Book a Free Strategy Call
+            </ZenPrimaryButton>
+
+            <ZenSecondaryButton href="#work" className="px-7 py-3.5 text-sm font-bold">
+              See Our Work
+            </ZenSecondaryButton>
+          </div>
+
+          {/* Social Proof Stats Row */}
+          <div
+            ref={statsRef}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 w-full max-w-2xl opacity-0"
+          >
+            {siteConfig.stats.map((stat, i) => (
+              <div key={i} className="flex flex-col items-center gap-1">
+                <span className="text-2xl sm:text-3xl font-extrabold text-ink font-heading tracking-tight">
+                  {stat.value}
+                </span>
+                <span className="text-[11px] sm:text-xs font-mono font-bold text-ink-muted uppercase tracking-wider">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </Container>
@@ -118,3 +142,4 @@ export function HeroSection() {
     </section>
   );
 }
+
