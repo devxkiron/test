@@ -3,7 +3,7 @@
 import { useCallback, useMemo } from "react";
 import { Container } from "@/components/ui/Container";
 import { specializations, siteConfig } from "@/lib/data";
-import { CheckmarkCircle01Icon } from "hugeicons-react";
+import { CheckmarkCircleIcon } from "@/components/icons";
 import { AnimateOnScroll } from "@/components/motion/AnimateOnScroll";
 import { ZenSecondaryButton } from "@/components/ui/ZenButton";
 import {
@@ -97,7 +97,7 @@ const initialNodes: Node[] = [
     data: {
       label: "Slack & Email Alert",
       sublabel: "Instant team notification",
-      status: "Sent ✓",
+      status: "Dispatched",
       color: "#34D399",
     },
   },
@@ -139,9 +139,9 @@ export function SpecializationSection() {
             <div className="space-y-4 mb-10">
               {specializations.map((spec, i) => (
                 <AnimateOnScroll key={i} direction="left" delay={i * 80}>
-                  <div className="flex items-start gap-3 p-3.5 r bg-canvas dark:bg-canvas-alt border border-line/60 hover:border-line-strong transition-all">
+                  <div className="skewElem flex items-start gap-3 p-3.5 r bg-canvas dark:bg-canvas-alt border border-line/60 hover:border-line-strong transition-all">
                     <div className="w-6 h-6 rounded-full bg-[#14221A] text-[#D4FF00] flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckmarkCircle01Icon className="w-4 h-4" />
+                      <CheckmarkCircleIcon size={16} />
                     </div>
                     <div>
                       <h3 className="text-sm font-bold text-ink">{spec.title}</h3>
@@ -169,7 +169,7 @@ export function SpecializationSection() {
           {/* Right Column: React Flow Interactive Pipeline Canvas */}
           <div className="lg:col-span-6">
             <AnimateOnScroll direction="right" delay={200}>
-              <div className="r-lg bg-[#14221A] border border-[#243B2E] shadow-xl overflow-hidden" style={{ height: 460 }}>
+              <div className="skewElem r-lg bg-[#14221A] border border-[#243B2E] shadow-xl overflow-hidden" style={{ height: 460 }}>
                 <div className="flex items-center justify-between px-5 py-3 border-b border-[#243B2E]">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-[#D4FF00] animate-pulse" />
@@ -188,6 +188,12 @@ export function SpecializationSection() {
                   fitView
                   minZoom={0.5}
                   maxZoom={1.5}
+                  preventScrolling={false}
+                  zoomOnScroll={false}
+                  panOnScroll={false}
+                  nodesDraggable={false}
+                  nodesConnectable={false}
+                  elementsSelectable={false}
                   proOptions={{ hideAttribution: true }}
                   style={{ background: "#14221A" }}
                 >

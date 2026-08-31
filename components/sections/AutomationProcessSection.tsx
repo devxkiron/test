@@ -4,18 +4,17 @@ import { useState, useEffect } from "react";
 import { Container } from "@/components/ui/Container";
 import { AnimateOnScroll } from "@/components/motion/AnimateOnScroll";
 import {
-  CheckmarkCircle01Icon,
-  Shield01Icon,
+  CheckmarkCircleIcon,
+  ShieldIcon,
   CpuIcon,
   FlashIcon,
   RefreshIcon,
-  Settings01Icon,
-  File01Icon,
-  Search01Icon,
+  SettingsIcon,
+  FileIcon,
+  SearchIcon,
   FilterIcon,
-  ArrowUp01Icon,
-  SparklesIcon,
-} from "hugeicons-react";
+  ArrowUpIcon,
+} from "@/components/icons";
 
 /* ─── Code Snippet for Step 2 Typing Effect ─────────────────────────── */
 const codeLines = [
@@ -63,7 +62,7 @@ export function AutomationProcessSection() {
   }, []);
 
   const workflowItems = [
-    { label: "System check", icon: Shield01Icon },
+    { label: "System check", icon: ShieldIcon },
     { label: "Process check", icon: CpuIcon },
     { label: "Speed check", icon: FlashIcon },
     { label: "Manual work", icon: RefreshIcon },
@@ -91,7 +90,7 @@ export function AutomationProcessSection() {
 
           {/* ─── Card 1: Step 1 - Smart Analyzing ─── */}
           <AnimateOnScroll direction="left" delay={0}>
-            <div className="r-lg bg-white dark:bg-canvas-alt/70 border-2 border-line hover:border-ink transition-all duration-300 p-7 sm:p-9 shadow-sm flex flex-col justify-between h-full">
+            <div className="skewElem r-lg bg-white dark:bg-canvas-alt/70 border-2 border-line hover:border-ink transition-all duration-300 p-7 sm:p-9 shadow-sm flex flex-col justify-between h-full">
               <div>
                 <span className="inline-block px-3 py-1 r-sm bg-canvas-alt dark:bg-canvas-subtle text-xs font-mono font-bold text-ink mb-3 border border-line">
                   Step 1
@@ -144,12 +143,12 @@ export function AutomationProcessSection() {
                         }`}
                       >
                         <div className="flex items-center gap-2">
-                          <IconComponent className="w-3.5 h-3.5 text-ink shrink-0" />
+                          <IconComponent size={14} className="text-ink shrink-0" />
                           <span>{item.label}</span>
                         </div>
 
                         {isChecked ? (
-                          <CheckmarkCircle01Icon className="w-4 h-4 text-emerald-600 dark:text-lime shrink-0" />
+                          <CheckmarkCircleIcon size={16} className="text-emerald-600 dark:text-lime shrink-0" />
                         ) : (
                           <span className="w-3.5 h-3.5 rounded-full border border-line shrink-0" />
                         )}
@@ -163,7 +162,7 @@ export function AutomationProcessSection() {
 
           {/* ─── Card 2: Step 2 - AI Development ─── */}
           <AnimateOnScroll direction="right" delay={100}>
-            <div className="r-lg bg-white dark:bg-canvas-alt/70 border-2 border-line hover:border-ink transition-all duration-300 p-7 sm:p-9 shadow-sm flex flex-col justify-between h-full">
+            <div className="skewElem r-lg bg-white dark:bg-canvas-alt/70 border-2 border-line hover:border-ink transition-all duration-300 p-7 sm:p-9 shadow-sm flex flex-col justify-between h-full">
               <div>
                 <span className="inline-block px-3 py-1 r-sm bg-canvas-alt dark:bg-canvas-subtle text-xs font-mono font-bold text-ink mb-3 border border-line">
                   Step 2
@@ -192,13 +191,13 @@ export function AutomationProcessSection() {
                 <div className="flex">
                   {/* Mini Sidebar */}
                   <div className="w-9 bg-[#111813] border-r border-white/10 flex flex-col items-center py-3 gap-3 text-white/50">
-                    <File01Icon className="w-3.5 h-3.5 text-lime" />
-                    <Search01Icon className="w-3.5 h-3.5" />
-                    <Settings01Icon className="w-3.5 h-3.5" />
+                    <FileIcon size={14} className="text-lime" />
+                    <SearchIcon size={14} />
+                    <SettingsIcon size={14} />
                   </div>
 
                   {/* Code Editor Area */}
-                  <div className="p-4 font-mono text-[11px] leading-relaxed flex-1 overflow-x-auto min-h-[170px]">
+                  <div className="p-4 font-mono text-[11px] leading-relaxed flex-1 overflow-x-auto min-h-[190px] h-[190px]">
                     {codeLines.slice(0, displayedLineCount).map((line, i) => (
                       <div key={i} className="flex gap-3">
                         <span className="text-white/30 select-none w-3 text-right">{i + 1}</span>
@@ -222,7 +221,7 @@ export function AutomationProcessSection() {
 
           {/* ─── Card 3: Step 3 - Seamless Integration ─── */}
           <AnimateOnScroll direction="left" delay={200}>
-            <div className="r-lg bg-white dark:bg-canvas-alt/70 border-2 border-line hover:border-ink transition-all duration-300 p-7 sm:p-9 shadow-sm flex flex-col justify-between h-full">
+            <div className="skewElem r-lg bg-white dark:bg-canvas-alt/70 border-2 border-line hover:border-ink transition-all duration-300 p-7 sm:p-9 shadow-sm flex flex-col justify-between h-full">
               <div>
                 <span className="inline-block px-3 py-1 r-sm bg-canvas-alt dark:bg-canvas-subtle text-xs font-mono font-bold text-ink mb-3 border border-line">
                   Step 3
@@ -240,7 +239,7 @@ export function AutomationProcessSection() {
                 {/* Left Node: Our Solution */}
                 <div className="flex flex-col items-center gap-2 z-10">
                   <div className="w-16 h-16 rounded-full bg-linear-to-br from-[#14221A] to-[#243B2E] border-2 border-lime flex items-center justify-center shadow-lg animate-float">
-                    <SparklesIcon className="w-8 h-8 text-lime animate-pulse" />
+                    <FlashIcon className="w-8 h-8 text-lime" />
                   </div>
                   <span className="text-xs font-mono font-extrabold text-ink">Our solution</span>
                 </div>
@@ -255,8 +254,9 @@ export function AutomationProcessSection() {
                       />
                     </div>
                   ))}
-                  <div className="text-[10px] font-mono font-bold text-center text-emerald-700 dark:text-lime mt-1">
-                    ⚡ Live 14ms API Bridge
+                  <div className="text-[10px] font-mono font-bold text-center text-emerald-700 dark:text-lime mt-1 flex items-center justify-center gap-1.5">
+                    <FlashIcon className="w-3.5 h-3.5 text-lime shrink-0" />
+                    <span>Live 14ms API Bridge</span>
                   </div>
                 </div>
 
@@ -273,7 +273,7 @@ export function AutomationProcessSection() {
 
           {/* ─── Card 4: Step 4 - Continuous Optimization ─── */}
           <AnimateOnScroll direction="right" delay={300}>
-            <div className="r-lg bg-white dark:bg-canvas-alt/70 border-2 border-line hover:border-ink transition-all duration-300 p-7 sm:p-9 shadow-sm flex flex-col justify-between h-full">
+            <div className="skewElem r-lg bg-white dark:bg-canvas-alt/70 border-2 border-line hover:border-ink transition-all duration-300 p-7 sm:p-9 shadow-sm flex flex-col justify-between h-full">
               <div>
                 <span className="inline-block px-3 py-1 r-sm bg-canvas-alt dark:bg-canvas-subtle text-xs font-mono font-bold text-ink mb-3 border border-line">
                   Step 4
@@ -292,7 +292,7 @@ export function AutomationProcessSection() {
                 <div className="flex items-center justify-between p-3 r-sm bg-white dark:bg-canvas border border-line shadow-xs">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 r-sm bg-canvas-alt flex items-center justify-center text-ink">
-                      <SparklesIcon className="w-4 h-4 text-purple-600" />
+                      <CpuIcon className="w-4 h-4 text-purple-600" />
                     </div>
                     <div>
                       <div className="text-xs font-extrabold text-ink font-heading">Chatbot system</div>
@@ -309,7 +309,7 @@ export function AutomationProcessSection() {
                 <div className="flex items-center justify-between p-3 r-sm bg-white dark:bg-canvas border border-line shadow-xs">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 r-sm bg-canvas-alt flex items-center justify-center text-ink">
-                      <Settings01Icon className="w-4 h-4 text-amber-600" />
+                      <SettingsIcon size={16} className="text-amber-600" />
                     </div>
                     <div>
                       <div className="text-xs font-extrabold text-ink font-heading">Workflow system</div>
@@ -318,7 +318,7 @@ export function AutomationProcessSection() {
                   </div>
 
                   <div className="w-6 h-6 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 animate-bounce">
-                    <ArrowUp01Icon className="w-3.5 h-3.5" />
+                    <ArrowUpIcon size={14} />
                   </div>
                 </div>
 
@@ -326,15 +326,15 @@ export function AutomationProcessSection() {
                 <div className="flex items-center justify-between p-3 r-sm bg-white dark:bg-canvas border border-line shadow-xs">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 r-sm bg-canvas-alt flex items-center justify-center text-ink">
-                      <FilterIcon className="w-4 h-4 text-emerald-600" />
+                      <FilterIcon size={16} className="text-emerald-600" />
                     </div>
                     <div>
                       <div className="text-xs font-extrabold text-ink font-heading">Sales system</div>
-                      <div className="text-[11px] text-emerald-700 dark:text-lime font-bold">Up to date ✓</div>
+                      <div className="text-[11px] text-emerald-700 dark:text-lime font-bold">Up to date</div>
                     </div>
                   </div>
 
-                  <CheckmarkCircle01Icon className="w-5 h-5 text-emerald-600 dark:text-lime shrink-0" />
+                  <CheckmarkCircleIcon size={18} className="text-emerald-600 dark:text-lime shrink-0" />
                 </div>
               </div>
             </div>

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { navLinks, siteConfig } from "@/lib/data";
-import { Menu01Icon, Cancel01Icon } from "hugeicons-react";
+import { MenuIcon, CloseIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { ZenSecondaryButton } from "@/components/ui/ZenButton";
 
@@ -65,13 +65,13 @@ export function Navbar() {
           <div className="flex sm:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 text-ink rounded-full hover:bg-canvas-subtle transition-colors"
+              className="p-1.5 text-ink rounded-full hover:bg-canvas-subtle transition-colors cursor-pointer"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
-                <Cancel01Icon className="w-5 h-5" />
+                <CloseIcon size={20} />
               ) : (
-                <Menu01Icon className="w-5 h-5" />
+                <MenuIcon size={20} />
               )}
             </button>
           </div>

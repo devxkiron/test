@@ -2,15 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { 
-  Cancel01Icon, 
-  ArrowRight01Icon, 
-  CheckmarkCircle01Icon, 
-  Calendar01Icon, 
-  Mail01Icon, 
+  CloseIcon, 
+  ArrowRightIcon, 
+  CheckmarkCircleIcon, 
+  CalendarIcon, 
+  MailIcon, 
   UserIcon, 
-  Building01Icon, 
-  ArrowDown01Icon 
-} from "hugeicons-react";
+  BuildingIcon, 
+  ArrowDownIcon 
+} from "@/components/icons";
 import { Button } from "./Button";
 import { Badge } from "./Badge";
 import { cn } from "@/lib/utils";
@@ -116,10 +116,10 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
           </div>
           <button
             onClick={onClose}
-            className="ml-4 mt-0.5 rounded-md p-1.5 text-ink-muted hover:text-ink hover:bg-canvas-alt transition-colors"
+            className="ml-4 mt-0.5 rounded-md p-1.5 text-ink-muted hover:text-ink hover:bg-canvas-alt transition-colors cursor-pointer"
             aria-label="Close modal"
           >
-            <Cancel01Icon size={16} />
+            <CloseIcon size={16} />
           </button>
         </div>
 
@@ -128,7 +128,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
           {submitted ? (
             <div className="flex flex-col items-center gap-4 py-6 text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-success-bg border border-success/30 text-success">
-                <CheckmarkCircle01Icon size={28} />
+                <CheckmarkCircleIcon size={28} />
               </div>
               <div>
                 <p className="font-bold text-ink">Architecture Intake Complete</p>
@@ -167,7 +167,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                         ? "border-accent bg-accent text-white"
                         : "border-line"
                     )}>
-                      {selected.includes(point) && "✓"}
+                      {selected.includes(point) && <CheckmarkCircleIcon size={12} />}
                     </span>
                     <span>{point}</span>
                   </button>
@@ -178,7 +178,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                 onClick={() => setStep(2)}
                 disabled={selected.length === 0}
               >
-                Proceed to Details <ArrowRight01Icon size={14} className="ml-1" />
+                Proceed to Details <ArrowRightIcon size={14} className="ml-1" />
               </Button>
             </div>
           ) : step === 2 ? (
@@ -201,7 +201,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                 <div>
                   <label className="block font-medium text-ink mb-1">Work Email</label>
                   <div className="relative">
-                    <Mail01Icon size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-ghost" />
+                    <MailIcon size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-ghost" />
                     <input
                       required
                       type="email"
@@ -216,7 +216,7 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
               <div>
                 <label className="block font-medium text-ink mb-1">Company / Organization</label>
                 <div className="relative">
-                  <Building01Icon size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-ghost" />
+                  <BuildingIcon size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-ghost" />
                   <input
                     required
                     type="text"
@@ -242,19 +242,19 @@ export function AuditModal({ isOpen, onClose }: AuditModalProps) {
                     <option value="51-200">51–200 employees</option>
                     <option value="200+">200+ employees</option>
                   </select>
-                  <ArrowDown01Icon size={14} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-ink-ghost" />
+                  <ArrowDownIcon size={14} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-ink-ghost" />
                 </div>
               </div>
               <div className="flex gap-2 pt-2">
                 <Button variant="outline" size="sm" className="flex-1" type="button" onClick={() => setStep(1)}>Back</Button>
-                <Button className="flex-1" size="sm" type="submit">Continue <ArrowRight01Icon size={14} className="ml-1" /></Button>
+                <Button className="flex-1" size="sm" type="submit">Continue <ArrowRightIcon size={14} className="ml-1" /></Button>
               </div>
             </form>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3.5 text-xs">
               <div className="rounded-xs border border-line p-3 bg-canvas-alt/50">
                 <div className="flex items-center gap-2 mb-2">
-                  <Calendar01Icon size={14} className="text-accent" />
+                  <CalendarIcon size={14} className="text-accent" />
                   <span className="font-semibold text-ink">Select Preferred Time Window</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2">

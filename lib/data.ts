@@ -11,7 +11,7 @@ export const siteConfig = {
     { label: "Hours Saved", value: "14,750+", suffix: "" },
     { label: "Client ROI", value: "2.4x", suffix: "" },
     { label: "Avg Response Time", value: "15 min", suffix: "" },
-    { label: "Clutch Rating", value: "5.0", suffix: " ★" },
+    { label: "Clutch Rating", value: "5.0", suffix: "" },
   ],
   socials: {
     github: "https://github.com",
@@ -57,7 +57,7 @@ export const caseStudies: CaseStudy[] = [
     stat: "-82% Latency",
     statLabel: "Dispatch Lag",
     accentBg: "bg-amber-100 dark:bg-amber-950/40",
-    badgeColor: "bg-amber-500",
+    badgeColor: "bg-amber-600/40",
     previewType: "airplane",
   },
   {
@@ -70,7 +70,7 @@ export const caseStudies: CaseStudy[] = [
     stat: "94.8%",
     statLabel: "Resolution Rate",
     accentBg: "bg-emerald-100 dark:bg-emerald-950/40",
-    badgeColor: "bg-emerald-500",
+    badgeColor: "bg-emerald-600/40",
     previewType: "person",
   },
   {
@@ -83,20 +83,20 @@ export const caseStudies: CaseStudy[] = [
     stat: "3 Hours",
     statLabel: "Month-End Close",
     accentBg: "bg-teal-100 dark:bg-teal-950/40",
-    badgeColor: "bg-teal-500",
+    badgeColor: "bg-teal-600/40",
     previewType: "dashboard-green",
   },
   {
     id: "sizzlekick-creative",
     category: "Creative AI",
     tag: "Ad Generator",
-    title: "Autonomous creative engine generating 500+ ad variations in minutes",
+    title: "Autonomous creative engine generating 600 + ad variations in minutes",
     client: "SizzleKick",
     summary: "Built high-converting multi-modal generative video and banner pipelines for DTC e-commerce brands.",
     stat: "+64%",
     statLabel: "ROAS Gain",
     accentBg: "bg-pink-100 dark:bg-pink-950/40",
-    badgeColor: "bg-pink-500",
+    badgeColor: "bg-pink-600/40",
     previewType: "quote-pink",
   },
   {
@@ -109,7 +109,7 @@ export const caseStudies: CaseStudy[] = [
     stat: "45 sec",
     statLabel: "Review Speed",
     accentBg: "bg-[#E8EDF4] dark:bg-[#1C2533]",
-    badgeColor: "bg-blue-500",
+    badgeColor: "bg-blue-600/40",
     previewType: "terminal-dark",
   },
   {
@@ -122,7 +122,7 @@ export const caseStudies: CaseStudy[] = [
     stat: "38ms",
     statLabel: "Edge Latency",
     accentBg: "bg-[#EDE8F8] dark:bg-[#251B38]",
-    badgeColor: "bg-purple-500",
+    badgeColor: "bg-purple-600/40",
     previewType: "analytics-purple",
   },
 ];

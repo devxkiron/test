@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/lib/data";
-import { CheckmarkCircle01Icon } from "hugeicons-react";
+import { CheckmarkCircleIcon } from "@/components/icons";
 import { AnimateOnScroll } from "@/components/motion/AnimateOnScroll";
 import { ZenSecondaryButton } from "@/components/ui/ZenButton";
 
@@ -62,7 +62,7 @@ export function BookingCalendarSection() {
 
         {/* Dual-Pane Scheduler Interface */}
         <AnimateOnScroll direction="scale" delay={100}>
-          <div className="max-w-4xl mx-auto r-lg overflow-hidden border-2 border-[#243B2E] shadow-2xl bg-canvas grid grid-cols-1 md:grid-cols-12">
+          <div className="skewElem max-w-4xl mx-auto r-lg overflow-hidden border-2 border-[#243B2E] shadow-2xl bg-canvas grid grid-cols-1 md:grid-cols-12">
             {/* Left Pane: Forest Green Calendar Picker */}
             <div className="md:col-span-6 bg-[#14221A] text-white p-8 sm:p-10 flex flex-col justify-between">
               <div>
@@ -115,7 +115,7 @@ export function BookingCalendarSection() {
               {booked ? (
                 <div className="my-auto text-center py-6">
                   <div className="w-14 h-14 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-lime flex items-center justify-center mx-auto mb-4 shadow-sm">
-                    <CheckmarkCircle01Icon className="w-8 h-8" />
+                    <CheckmarkCircleIcon size={32} />
                   </div>
                   <h3 className="text-2xl font-bold text-ink mb-2 font-heading">Strategy Call Scheduled!</h3>
                   <p className="text-xs text-ink-muted leading-relaxed max-w-xs mx-auto mb-4 font-medium">
@@ -134,8 +134,9 @@ export function BookingCalendarSection() {
                     <span className="text-xs font-mono uppercase font-extrabold text-ink">
                       Available Times for Aug {selectedDay}:
                     </span>
-                    <span className="text-xs font-mono text-emerald-600 font-extrabold">
-                      ● Live Slots
+                    <span className="text-xs font-mono text-emerald-600 font-extrabold inline-flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      Live Slots
                     </span>
                   </div>
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { faqs, siteConfig } from "@/lib/data";
-import { PlusSignIcon, Remove01Icon } from "hugeicons-react";
+import { PlusIcon, MinusIcon } from "@/components/icons";
 import { AnimateOnScroll } from "@/components/motion/AnimateOnScroll";
 
 export function FaqSection() {
@@ -48,7 +48,7 @@ export function FaqSection() {
               return (
                 <AnimateOnScroll key={idx} direction="right" delay={idx * 80}>
                   <div
-                    className="r-lg border border-line bg-canvas-alt/70 dark:bg-canvas-subtle/40 overflow-hidden transition-all duration-200"
+                    className="skewElem r-lg border border-line bg-canvas-alt/70 dark:bg-canvas-subtle/40 overflow-hidden transition-all duration-200"
                   >
                     <button
                       onClick={() => toggleFaq(idx)}
@@ -66,9 +66,9 @@ export function FaqSection() {
                         }`}
                       >
                         {isOpen ? (
-                          <Remove01Icon className="w-4 h-4" />
+                          <MinusIcon size={16} />
                         ) : (
-                          <PlusSignIcon className="w-4 h-4" />
+                          <PlusIcon size={16} />
                         )}
                       </span>
                     </button>

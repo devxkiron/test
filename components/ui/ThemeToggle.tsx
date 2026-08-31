@@ -1,6 +1,6 @@
 "use client";
 
-import { Sun01Icon, Moon02Icon } from "hugeicons-react";
+import { SunIcon, MoonIcon } from "@/components/icons";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -32,14 +32,14 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       )}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      <Sun01Icon
+      <SunIcon
         size={16}
         className={cn(
           "absolute transition-all duration-300",
           isDark ? "scale-0 opacity-0 rotate-90" : "scale-100 opacity-100 rotate-0"
         )}
       />
-      <Moon02Icon
+      <MoonIcon
         size={16}
         className={cn(
           "absolute transition-all duration-300",

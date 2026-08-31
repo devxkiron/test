@@ -62,7 +62,7 @@ export function ImpactStatsSection() {
           {impactStats.map((stat, idx) => (
             <div
               key={idx}
-              className="stat-card p-8 sm:p-10 r-lg bg-canvas-alt/80 dark:bg-canvas-subtle/60 border border-line flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="skewElem stat-card p-8 sm:p-10 r-lg bg-canvas-alt/80 dark:bg-canvas-subtle/60 border border-line flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               <div className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-ink font-heading mb-4">
                 {stat.value}

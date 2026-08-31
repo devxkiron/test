@@ -1,7 +1,13 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { PlayIcon, SparklesIcon, CheckmarkCircle01Icon, ZapIcon, ArrowRight01Icon } from "hugeicons-react";
+import { 
+  PlayIcon, 
+  CheckmarkCircleIcon, 
+  PlaneIcon, 
+  MessageSquareIcon, 
+  ArrowLeftRightIcon 
+} from "@/components/icons";
 
 type DemoScenario = "flight" | "rag" | "ledger";
 
@@ -22,9 +28,9 @@ interface ScenarioData {
 const scenarios: Record<DemoScenario, ScenarioData> = {
   flight: {
     id: "flight",
-    tabLabel: "✈️ Flight Ops",
+    tabLabel: "Flight Ops",
     badge: "Autonomous Dispatch",
-    badgeColor: "bg-amber-500",
+    badgeColor: "bg-amber-400",
     title: "AI Flight Dispatch Engine",
     desc: "Autonomous re-routing & turnaround telemetry",
     metric: "-82% Delay",
@@ -36,13 +42,13 @@ const scenarios: Record<DemoScenario, ScenarioData> = {
       { text: "Crew rest rosters validated across 4 hubs", time: "89ms", status: "done" },
       { text: "Optimized route published to ATC radar", time: "114ms", status: "done" },
     ],
-    result: "✦ Route Verified · Saved 38 min flight time & 420 gal fuel",
+    result: "Route Verified · Saved 38 min flight time & 420 gal fuel",
   },
   rag: {
     id: "rag",
-    tabLabel: "💬 Support Bot",
+    tabLabel: "Support Bot",
     badge: "Sub-Second RAG",
-    badgeColor: "bg-emerald-500",
+    badgeColor: "bg-emerald-400",
     title: "Enterprise Copilot v2.4",
     desc: "Trained across Zendesk, Notion, & Jira databases",
     metric: "180ms P99",
@@ -54,13 +60,13 @@ const scenarios: Record<DemoScenario, ScenarioData> = {
       { text: "Drafted sub-second response with verified citations", time: "82ms", status: "done" },
       { text: "Sent resolution payload to customer portal", time: "105ms", status: "done" },
     ],
-    result: "✦ 100% Citation Accuracy · Zero hallucination",
+    result: "100% Citation Accuracy · Zero hallucination",
   },
   ledger: {
     id: "ledger",
-    tabLabel: "⚡ Ledger Sync",
+    tabLabel: "Ledger Sync",
     badge: "Zero-Touch Audit",
-    badgeColor: "bg-blue-500",
+    badgeColor: "bg-blue-400",
     title: "Stripe & Multi-Bank Sync",
     desc: "Autonomous reconciliation & ledger audit",
     metric: "$18.4M",
@@ -72,8 +78,14 @@ const scenarios: Record<DemoScenario, ScenarioData> = {
       { text: "Calculated multi-state sales tax withholdings", time: "56ms", status: "done" },
       { text: "PostgreSQL ledger mutated & Slack alert dispatched", time: "74ms", status: "done" },
     ],
-    result: "✦ Balanced Ledger · Auto-reconciliation complete",
+    result: "Balanced Ledger · Auto-reconciliation complete",
   },
+};
+
+const scenarioIcons: Record<DemoScenario, React.ElementType> = {
+  flight: PlaneIcon,
+  rag: MessageSquareIcon,
+  ledger: ArrowLeftRightIcon,
 };
 
 export function HeroInteractiveDemo() {
@@ -126,11 +138,12 @@ export function HeroInteractiveDemo() {
         </span>
       </div>
 
-      {/* Scenario Tabs */}
+      {/* Scenario Tabs with Clean SVG Icons */}
       <div className="flex items-center border-b border-line bg-canvas-alt/70 px-2 py-1.5 gap-1.5 overflow-x-auto">
         {(Object.keys(scenarios) as DemoScenario[]).map((key) => {
           const s = scenarios[key];
           const isSelected = activeScenario === key;
+          const TabIcon = scenarioIcons[key];
           return (
             <button
               key={key}
@@ -139,13 +152,14 @@ export function HeroInteractiveDemo() {
                 setCurrentStepIndex(4);
                 setIsRunning(false);
               }}
-              className={`px-3 py-1 text-xs font-mono font-bold r-sm transition-all whitespace-nowrap cursor-pointer ${
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold r-sm transition-all whitespace-nowrap cursor-pointer ${
                 isSelected
                   ? "bg-ink text-canvas shadow-xs scale-102"
                   : "bg-transparent text-ink-muted hover:text-ink hover:bg-canvas"
               }`}
             >
-              {s.tabLabel}
+              <TabIcon className="w-3.5 h-3.5 shrink-0" />
+              <span>{s.tabLabel}</span>
             </button>
           );
         })}
@@ -156,7 +170,10 @@ export function HeroInteractiveDemo() {
         {/* Top Status Bar inside terminal */}
         <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs">
           <div className="flex items-center gap-2">
-            <span className={`w-2 h-2 rounded-full ${scenario.badgeColor} animate-ping`} />
+            <span className="relative flex h-2 w-2 items-center justify-center">
+              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${scenario.badgeColor} opacity-75`} />
+              <span className={`relative inline-flex rounded-full h-2 w-2 ${scenario.badgeColor}`} />
+            </span>
             <span className="font-bold text-white text-xs font-heading">{scenario.title}</span>
           </div>
 
@@ -184,7 +201,7 @@ export function HeroInteractiveDemo() {
               >
                 <div className="flex items-center gap-2 truncate">
                   {isFinished ? (
-                    <CheckmarkCircle01Icon className="w-4 h-4 text-lime shrink-0" />
+                    <CheckmarkCircleIcon className="w-4 h-4 text-lime shrink-0" />
                   ) : isCurrent ? (
                     <span className="w-3.5 h-3.5 rounded-full border-2 border-lime border-t-transparent animate-spin shrink-0" />
                   ) : (
@@ -204,7 +221,10 @@ export function HeroInteractiveDemo() {
         {/* Success / Live Result Banner */}
         {currentStepIndex >= 4 && (
           <div className="bg-lime text-black p-2.5 r-sm text-[11px] font-bold shadow-md flex items-center justify-between animate-in fade-in duration-300 mb-3">
-            <span className="truncate">{scenario.result}</span>
+            <div className="flex items-center gap-1.5 truncate">
+              <CheckmarkCircleIcon className="w-3.5 h-3.5 shrink-0 text-black fill-none" />
+              <span className="truncate">{scenario.result}</span>
+            </div>
             <span className="text-[10px] bg-black text-lime px-1.5 py-0.5 rounded shrink-0 font-mono">
               99.8% Match
             </span>

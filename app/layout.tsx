@@ -53,8 +53,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="h-full scroll-smooth">
-      <body className="min-h-full antialiased bg-canvas text-ink">
+    <html lang="en" suppressHydrationWarning>
+      <body className="min-h-screen antialiased bg-canvas text-ink">
         <ThemeProvider>
           <GSAPProvider>
             <SmoothScroll />

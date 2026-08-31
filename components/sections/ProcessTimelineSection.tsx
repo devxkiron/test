@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { Container } from "@/components/ui/Container";
 import { processStages } from "@/lib/data";
-import { CheckmarkCircle01Icon } from "hugeicons-react";
+import { CheckmarkCircleIcon, LayersIcon } from "@/components/icons";
 import { AnimateOnScroll } from "@/components/motion/AnimateOnScroll";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -83,8 +83,9 @@ export function ProcessTimelineSection() {
                         <div className="space-y-2 my-auto">
                           <div className="h-2.5 bg-stone-300 dark:bg-stone-700 r-sm w-3/4" />
                           <div className="h-2 bg-stone-200 dark:bg-stone-800 r-sm w-1/2" />
-                          <div className="h-7 bg-lime/25 border border-lime/60 r-sm flex items-center px-2.5 text-xs font-mono text-ink font-bold">
-                            ✦ Clickable Figma Prototype
+                          <div className="h-7 bg-lime/25 border border-lime/60 r-sm flex items-center px-2.5 text-xs font-mono text-ink font-bold gap-1.5">
+                            <LayersIcon size={14} className="text-ink shrink-0" />
+                            <span>Clickable Figma Prototype</span>
                           </div>
                         </div>
                       )}
@@ -100,14 +101,20 @@ export function ProcessTimelineSection() {
                       {idx === 2 && (
                         <div className="space-y-1 my-auto font-mono text-xs text-emerald-800 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/60 p-2 r-sm font-semibold">
                           <div>&gt; next build --turbo</div>
-                          <div>&gt; compiled successfully in 1.4s ✓</div>
+                          <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-300">
+                            <CheckmarkCircleIcon size={14} />
+                            <span>compiled successfully in 1.4s</span>
+                          </div>
                         </div>
                       )}
 
                       {idx === 3 && (
                         <div className="flex items-center justify-between my-auto bg-ink text-canvas p-2.5 r-sm text-xs font-mono font-bold">
                           <span>Production Handover</span>
-                          <span className="text-lime">100% Verified ✓</span>
+                          <span className="text-lime flex items-center gap-1">
+                            <CheckmarkCircleIcon size={14} />
+                            100% Verified
+                          </span>
                         </div>
                       )}
 
@@ -136,7 +143,7 @@ export function ProcessTimelineSection() {
                     <div className="pt-4 border-t border-line/80 space-y-2 text-xs font-medium text-ink">
                       {stage.deliverables.map((d, i) => (
                         <div key={i} className="flex items-center gap-2">
-                          <CheckmarkCircle01Icon className="w-4 h-4 text-emerald-600 dark:text-lime shrink-0" />
+                          <CheckmarkCircleIcon size={16} className="text-emerald-600 dark:text-lime shrink-0" />
                           <span className="font-semibold">{d}</span>
                         </div>
                       ))}

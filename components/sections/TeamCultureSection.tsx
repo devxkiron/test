@@ -31,7 +31,7 @@ export function TeamCultureSection() {
           {teamMembers.map((member, i) => (
             <AnimateOnScroll key={i} direction="up" delay={i * 80}>
               <div
-                className="r-lg p-4 bg-canvas border border-line hover:border-line-strong transition-all duration-200 flex flex-col items-center text-center shadow-xs hover:shadow-md hover:-translate-y-1"
+                className="skewElem r-lg p-4 bg-canvas border border-line hover:border-line-strong transition-all duration-200 flex flex-col items-center text-center shadow-xs hover:shadow-md hover:-translate-y-1"
               >
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-linear-to-br from-stone-200 to-stone-400 dark:from-stone-700 dark:to-stone-900 border-2 border-line flex items-center justify-center font-mono font-black text-lg text-ink mb-3 shadow-xs">
                   {member.name.slice(0, 2)}
