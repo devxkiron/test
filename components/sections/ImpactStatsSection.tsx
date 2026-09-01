@@ -45,7 +45,7 @@ export function ImpactStatsSection() {
           <div className="max-w-3xl mb-14 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink mb-6 leading-tight">
               You stop talking about AI. <br />
-              We start shipping it.
+              We start <span className="font-accent inline-block -rotate-1 text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 via-lime to-[#B8E000]">shipping it.</span>
             </h2>
             <p className="text-base sm:text-lg text-ink font-normal leading-relaxed mb-8 max-w-2xl">
               We work best with ambitious companies ready to turn technology into an unfair operational advantage. No endless slides, just production software.
@@ -64,7 +64,7 @@ export function ImpactStatsSection() {
               key={idx}
               className="skewElem stat-card p-8 sm:p-10 r-lg bg-canvas-alt/80 dark:bg-canvas-subtle/60 border border-line flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-ink font-heading mb-4">
+              <div className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-ink font-display mb-4">
                 {stat.value}
               </div>
               <div>

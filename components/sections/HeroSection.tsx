@@ -78,7 +78,7 @@ export function HeroSection() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink mb-6 sm:mb-8 leading-[1.06] opacity-0"
           >
             We Build Software That Runs Your Business{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 via-lime to-[#B8E000]">
+            <span className="font-accent text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 via-lime to-[#B8E000] inline-block -rotate-1">
               on Autopilot
             </span>
           </h1>

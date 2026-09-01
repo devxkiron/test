@@ -35,7 +35,7 @@ export function LiveDemoSection() {
               </div>
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink mb-5 leading-tight font-heading">
-                See Our AI Agents in Action
+                See Our AI Agents <span className="font-display">in Action</span>
               </h2>
 
               <p className="text-base sm:text-lg text-ink-muted leading-relaxed mb-8 max-w-md">

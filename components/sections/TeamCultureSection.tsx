@@ -18,7 +18,7 @@ export function TeamCultureSection() {
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink mb-4">
               One team. From whiteboard <br className="hidden sm:inline" />
-              to production.
+              to <span className="font-accent inline-block -rotate-1">production.</span>
             </h2>
             <p className="text-base text-ink leading-relaxed">
               Senior engineers and designers working directly with you — no account managers, no layers of bureaucracy.

@@ -373,3 +373,33 @@ export const MoonIcon = createIcon("MoonIcon", () => (
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
   </>
 ));
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Verified Scalloped Badge Icon (Twitter / Instagram / Meta style)
+   ───────────────────────────────────────────────────────────────────────────── */
+export const VerifiedBadgeIcon = React.forwardRef<SVGSVGElement, IconProps>(
+  ({ size = 16, className = "", ...props }, ref) => (
+    <svg
+      ref={ref}
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.97-.81-4.08s-2.67-1.3-4.06-.84C14.53 2.43 13.3 1.55 11.87 1.55s-2.66.88-3.32 2.19c-1.4-.46-2.97-.2-4.08.81s-1.3 2.69-.84 4.08C2.32 9.29 1.44 10.53 1.44 11.96s.88 2.67 2.19 3.34c-.46 1.39-.2 2.97.81 4.08s2.67 1.3 4.06.84c.66 1.31 1.89 2.19 3.32 2.19s2.66-.88 3.32-2.19c1.4.46 2.97.2 4.08-.81s1.3-2.69.84-4.08c1.31-.67 2.19-1.91 2.19-3.34z"
+        fill="#0095F6"
+      />
+      <path
+        d="M10.54 16.2L6.8 12.46l1.41-1.42 2.33 2.33 4.99-4.99 1.42 1.42-6.41 6.4z"
+        fill="#FFFFFF"
+      />
+    </svg>
+  )
+);
+VerifiedBadgeIcon.displayName = "VerifiedBadgeIcon";
+

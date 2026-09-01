@@ -52,7 +52,7 @@ export function BookingCalendarSection() {
               15-Min Discovery
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink mb-4 font-heading">
-              Book a Free Strategy Call
+              Book a <span className="font-accent inline-block -rotate-1 text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 via-lime to-[#B8E000]">Free Strategy Call</span>
             </h2>
             <p className="text-base text-ink leading-relaxed">
               Pick a date and time to discuss your product architecture, roadmap, and scope directly with our lead engineer.
