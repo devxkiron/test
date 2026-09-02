@@ -427,3 +427,64 @@ code, pre, .font-mono {
   animation-play-state: paused !important;
 }
 
+/* ─── Custom Luxury Studio Scrollbar ─────────────────────────────────── */
+/* Firefox Standard Cross-Browser Support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(13, 20, 15, 0.25) transparent;
+}
+
+.dark * {
+  scrollbar-color: rgba(212, 255, 0, 0.35) transparent;
+}
+
+/* WebKit (Chrome, Edge, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Floating Pill Thumb with transparent border inset */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(13, 20, 15, 0.22);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(13, 20, 15, 0.6);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #0D140F;
+}
+
+/* Dark Mode Scrollbar with Signature Electric Lime Glow */
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #D4FF00;
+  box-shadow: 0 0 10px rgba(212, 255, 0, 0.6);
+}
+
+.dark ::-webkit-scrollbar-thumb:active {
+  background-color: #E6FF4D;
+  box-shadow: 0 0 14px rgba(212, 255, 0, 0.8);
+}
+
+/* Corner junction when both horizontal & vertical scrollbars exist */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
