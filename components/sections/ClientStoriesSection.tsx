@@ -362,7 +362,7 @@ export function ClientStoriesSection() {
     controls.enableDamping = true;
     controls.dampingFactor = 0.06;
     controls.enablePan = false;
-    controls.enableZoom = true;
+    controls.enableZoom = false; // Disabled scroll wheel zoom so it does not hijack page scroll
     controls.minDistance = 5.2; // Allows seamless close-up zoom filling the entire section
     controls.maxDistance = 22.0;
     controls.rotateSpeed = 0.8;

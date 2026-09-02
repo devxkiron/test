@@ -42,15 +42,12 @@ export function BookingCalendarSection() {
   };
 
   return (
-    <section id="book" className="py-20 sm:py-28 bg-canvas border-t border-line pattern-dots">
+    <section id="book" className="py-12 sm:py-20 bg-canvas border-t border-line pattern-dots">
       <Container>
         {/* Section Header */}
         <AnimateOnScroll direction="up">
           <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 r-pill bg-canvas-alt dark:bg-canvas-subtle border border-line text-xs font-mono font-semibold text-ink-muted mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-lime" />
-              15-Min Discovery
-            </div>
+            
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink mb-4 font-heading">
               Book a <span className="font-accent inline-block -rotate-1 text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 via-lime to-[#B8E000]">Free Strategy Call</span>
             </h2>
