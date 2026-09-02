@@ -316,13 +316,14 @@ export function AutomationProcessSection() {
         <div ref={cardsContainerRef} className="process-stackingcards relative w-full space-y-14 sm:space-y-16 pb-4 sm:pb-6">
           {steps.map((step, idx) => {
             const isExpanded = !!expandedSteps[step.id];
+            const isTextRight = idx % 2 === 0;
             const topOffsetMobile = 90 + idx * 16;
             const topOffsetDesktop = 120 + idx * 24;
 
             return (
               <div
                 key={step.id}
-                className="process-stackingcard sticky w-full rounded-2xl overflow-hidden will-change-transform relative"
+                className="process-stackingcard sticky w-full rounded-xl overflow-hidden will-change-transform relative"
                 style={{
                   top: `clamp(${topOffsetMobile}px, ${topOffsetDesktop}px, ${topOffsetDesktop}px)`,
                   backgroundColor: "rgba(21, 34, 20, 0.86)",
@@ -333,11 +334,17 @@ export function AutomationProcessSection() {
                   boxShadow: "inset 0 1px 1px 0 rgba(255, 255, 255, 0.12), 0 25px 60px -12px rgba(0, 0, 0, 0.34)",
                 }}
               >
-                {/* Card Main Body: Split 2-Column Layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 p-5 lg:p-7 items-start relative z-10">
+                {/* Card Main Body: Split 2-Column Alternating Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 p-5 lg:p-7 items-start relative z-10">
                   
-                  {/* Left Column: Title and Description directly connected with zero empty gap */}
-                  <div className="lg:col-span-5 pt-4 pl-2 flex flex-col items-start space-y-5">
+                  {/* Text Column: Alternates Left & Right on Desktop with balanced breathing room */}
+                  <div
+                    className={`lg:col-span-5 order-1 pt-2 sm:pt-4 flex flex-col items-start space-y-5 ${
+                      isTextRight
+                        ? "lg:order-2 lg:pl-6 lg:pr-2"
+                        : "lg:order-1 lg:pl-2 lg:pr-6"
+                    }`}
+                  >
                     <h3
                       className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight font-heading leading-[1.2] text-white"
                       style={{ color: "#e5f0bec6" }}
@@ -352,20 +359,26 @@ export function AutomationProcessSection() {
                     />
                   </div>
 
-                  {/* Right Column: Uniform Height Interactive Preview */}
-                  <div className="lg:col-span-7 -ml-4 lg:ml-0 -mr-4 -mt-5 -mb-5">
+                  {/* Visual Preview Container: Flush edge alignment on alternating sides */}
+                  <div
+                    className={`lg:col-span-7 order-2 -mt-5 -mb-5 lg:-mt-7 lg:-mb-7 ${
+                      isTextRight
+                        ? "lg:order-1 -ml-5 -mr-5 lg:-ml-7 lg:mr-0"
+                        : "lg:order-2 -ml-5 -mr-5 lg:ml-0 lg:-mr-7"
+                    }`}
+                  >
                     
                     {/* Visual 1: Analyze Business (Diagnostic Radar & Live Checklist) */}
                     {idx === 0 && (
-                      <div className="r-md bg-[#0D1811] p-5 sm:p-6 border border-white/15 shadow-xl h-[310px] sm:h-[320px] flex flex-col justify-between overflow-hidden">
+                      <div className="r-md bg-[#0D1811] p-5 sm:p-6 border border-white/15 shadow-xl h-[320px] sm:h-[360px] lg:h-[420px] xl:h-[450px] flex flex-col justify-between overflow-hidden">
                        
 
                         <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center my-auto">
                           {/* Radar Left */}
                           <div className="sm:col-span-5 flex flex-col items-center justify-center text-center">
-                            <div className="relative w-24 h-24 rounded-full border-2 border-lime/60 flex items-center justify-center bg-[#07110C] shadow-inner overflow-hidden">
-                              <div className="absolute w-16 h-16 rounded-full border border-white/15" />
-                              <div className="absolute w-10 h-10 rounded-full border border-white/10" />
+                            <div className="relative w-24 h-24 lg:w-28 lg:h-28 rounded-full border-2 border-lime/60 flex items-center justify-center bg-[#07110C] shadow-inner overflow-hidden">
+                              <div className="absolute w-16 h-16 lg:w-18 lg:h-18 rounded-full border border-white/15" />
+                              <div className="absolute w-10 h-10 lg:w-11 lg:h-11 rounded-full border border-white/10" />
                               <div className="absolute w-1.5 h-1.5 rounded-full bg-lime shadow-[0_0_8px_#D4FF00]" />
 
                               {/* Rotating Radar Sweeper */}
@@ -418,7 +431,7 @@ export function AutomationProcessSection() {
 
                     {/* Visual 2: Build Prototype (n8n Design Language: Real Business Lead Qualification & Routing) */}
                     {idx === 1 && (
-                      <div className="r-md bg-[#07100A]/40 p-2 sm:p-3 border border-white/15 shadow-xl h-[310px] sm:h-[320px] flex flex-col justify-center overflow-hidden relative">
+                      <div className="r-md bg-[#07100A]/40 p-2 sm:p-3 border border-white/15 shadow-xl h-[320px] sm:h-[360px] lg:h-[420px] xl:h-[450px] flex flex-col justify-center overflow-hidden relative">
                         {/* Dot Matrix Canvas Grid */}
                         <div className="absolute inset-0 pattern-matrix-dots opacity-50 pointer-events-none" />
 
@@ -426,7 +439,7 @@ export function AutomationProcessSection() {
                         <div className="relative w-full h-full flex items-center justify-center z-10 overflow-hidden">
                           <svg
                             viewBox="0 0 540 205"
-                            className="w-full h-full max-h-[250px]"
+                            className="w-full h-full max-h-[260px] sm:max-h-[300px] lg:max-h-[350px] xl:max-h-[380px]"
                             style={{ overflow: "visible" }}
                           >
                             <defs>
@@ -749,7 +762,7 @@ export function AutomationProcessSection() {
 
                     {/* Visual 3: Build Solution (Python IDE Code Editor) */}
                     {idx === 2 && (
-                      <div className="r-md bg-[#07110C] text-slate-100 border border-white/15 overflow-hidden shadow-xl h-[310px] sm:h-[320px] flex flex-col justify-between">
+                      <div className="r-md bg-[#07110C] text-slate-100 border border-white/15 overflow-hidden shadow-xl h-[320px] sm:h-[360px] lg:h-[420px] xl:h-[450px] flex flex-col justify-between">
                         {/* IDE Titlebar */}
                         <div className="flex items-center justify-between px-4 py-2.5 bg-[#101C14] border-b border-white/10 text-xs">
                           <div className="flex items-center gap-1.5">
@@ -772,7 +785,7 @@ export function AutomationProcessSection() {
                           </div>
 
                           {/* Code Editor Area */}
-                          <div className="p-3.5 font-mono text-[11px] leading-relaxed flex-1 overflow-x-auto">
+                          <div className="p-3.5 sm:p-4 font-mono text-[11px] sm:text-xs leading-relaxed flex-1 overflow-x-auto">
                             {codeLines.slice(0, displayedLineCount).map((line, lIdx) => (
                               <div key={lIdx} className="flex gap-3">
                                 <span className="text-white/30 select-none w-3 text-right">{lIdx + 1}</span>
@@ -812,7 +825,7 @@ export function AutomationProcessSection() {
                       const currentBiz = businessStackTools[activeBridgeIndex];
 
                       return (
-                        <div className="r-md bg-[#0D1811] p-5 sm:p-6 border border-white/15 shadow-xl h-[310px] sm:h-[320px] flex flex-col justify-between overflow-hidden relative">
+                        <div className="r-md bg-[#0D1811] p-5 sm:p-6 border border-white/15 shadow-xl h-[320px] sm:h-[360px] lg:h-[420px] xl:h-[450px] flex flex-col justify-between overflow-hidden relative">
                           {/* Clean, Non-Harsh CSS Keyframes */}
                           <style>{`
                             @keyframes dataBeamPulse {
@@ -978,7 +991,7 @@ export function AutomationProcessSection() {
 
                     {/* Visual 5: Save Time & Scale (Live Time-Savings & ROI Impact Dashboard) */}
                     {idx === 4 && (
-                      <div className="r-md bg-[#0D1811] p-5 sm:p-6 border border-white/15 shadow-xl h-[310px] sm:h-[320px] flex flex-col justify-between overflow-hidden">
+                      <div className="r-md bg-[#0D1811] p-5 sm:p-6 border border-white/15 shadow-xl h-[320px] sm:h-[360px] lg:h-[420px] xl:h-[450px] flex flex-col justify-between overflow-hidden">
                         <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
                           <span className="text-xs font-mono font-bold text-white flex items-center gap-2">
                             <ArrowUpIcon size={14} className="text-lime" />
