@@ -188,18 +188,59 @@ code, pre, .font-mono {
     -45deg,
     transparent,
     transparent 10px,
-    rgba(13, 20, 15, 0.04) 10px,
-    rgba(13, 20, 15, 0.04) 11px
+    rgba(13, 20, 15, 0.05) 10px,
+    rgba(13, 20, 15, 0.05) 11px
+  );
+}
+.dark .pattern-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(248, 250, 249, 0.05) 10px,
+    rgba(248, 250, 249, 0.05) 11px
   );
 }
 
 /* Cross Dot Pattern */
 .pattern-cross {
   background-image:
-    radial-gradient(circle, rgba(13, 20, 15, 0.06) 1.2px, transparent 1.2px),
-    radial-gradient(circle, rgba(13, 20, 15, 0.06) 1.2px, transparent 1.2px);
+    radial-gradient(circle, rgba(13, 20, 15, 0.08) 1.2px, transparent 1.2px),
+    radial-gradient(circle, rgba(13, 20, 15, 0.08) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
   background-position: 0 0, 12px 12px;
+}
+.dark .pattern-cross {
+  background-image:
+    radial-gradient(circle, rgba(248, 250, 249, 0.08) 1.2px, transparent 1.2px),
+    radial-gradient(circle, rgba(248, 250, 249, 0.08) 1.2px, transparent 1.2px);
+}
+
+/* Animated Patterns */
+@keyframes patternCrossMove {
+  0% {
+    background-position: 0 0, 12px 12px;
+  }
+  100% {
+    background-position: 24px 24px, 36px 36px;
+  }
+}
+
+@keyframes patternHatchMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 30px 30px;
+  }
+}
+
+.animate-pattern-cross {
+  animation: patternCrossMove 16s linear infinite;
+}
+
+.animate-pattern-hatch {
+  animation: patternHatchMove 16s linear infinite;
 }
 
 /* ─── CSS Vertical Timeline ──────────────────────────────────────────── */

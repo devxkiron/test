@@ -6,7 +6,15 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { StarIcon, CheckmarkCircleIcon, ArrowLeftIcon, ArrowRightIcon, CloseIcon, VerifiedBadgeIcon } from "@/components/icons";
 import { GlassSurface } from "@/components/ui/GlassSurface";
+import * as Flags from "country-flag-icons/react/3x2";
 import gsap from "gsap";
+
+// Helper component for country flag icons package
+const CountryFlag = ({ code, className = "w-4 h-3 rounded-[2px]" }: { code: string; className?: string }) => {
+  const FlagComponent = (Flags as Record<string, React.ComponentType<{ title?: string; className?: string }>>)[code];
+  if (!FlagComponent) return null;
+  return <FlagComponent className={className} />;
+};
 
 // Constants for globe configuration
 const GLOBE_RADIUS = 4.2;
@@ -31,11 +39,11 @@ const locations = [
     id: "1", 
     name: "New York", 
     country: "United States",
-    flagUrl: "/images/flags/us.svg",
+    countryCode: "US",
     company: "Apex Capital", 
     role: "Head of Operations", 
     author: "Marcus Vance", 
-    avatar: "/images/avatars/marcus.jpg",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&auto=format&fit=crop&q=80",
     rating: 5.0,
     verified: true,
     stat: "15 hrs/wk saved", 
@@ -48,11 +56,11 @@ const locations = [
     id: "2", 
     name: "London", 
     country: "United Kingdom",
-    flagUrl: "/images/flags/gb.svg",
+    countryCode: "GB",
     company: "MyAskAI", 
     role: "CEO", 
     author: "Alex Rainey", 
-    avatar: "/images/avatars/alex.jpg",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=160&auto=format&fit=crop&q=80",
     rating: 5.0,
     verified: true,
     stat: "100k+ Queries/mo", 
@@ -65,11 +73,11 @@ const locations = [
     id: "3", 
     name: "Tokyo", 
     country: "Japan",
-    flagUrl: "/images/flags/jp.svg",
+    countryCode: "JP",
     company: "FlyWise Global", 
     role: "VP Engineering", 
     author: "Kenji Sato", 
-    avatar: "/images/avatars/kenji.jpg",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=160&auto=format&fit=crop&q=80",
     rating: 4.9,
     verified: true,
     stat: "-82% Latency", 
@@ -82,11 +90,11 @@ const locations = [
     id: "4", 
     name: "Sydney", 
     country: "Australia",
-    flagUrl: "/images/flags/au.svg",
+    countryCode: "AU",
     company: "Bellmade Goods", 
     role: "Chief Product Officer", 
     author: "Chloe Adams", 
-    avatar: "/images/avatars/chloe.jpg",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=160&auto=format&fit=crop&q=80",
     rating: 5.0,
     verified: true,
     stat: "38ms Latency", 
@@ -99,11 +107,11 @@ const locations = [
     id: "5", 
     name: "San Francisco", 
     country: "United States",
-    flagUrl: "/images/flags/us.svg",
+    countryCode: "US",
     company: "SizzleKick", 
     role: "Founder & CEO", 
     author: "Andrew Heath", 
-    avatar: "/images/avatars/andrew.jpg",
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=160&auto=format&fit=crop&q=80",
     rating: 5.0,
     verified: true,
     stat: "+64% ROAS", 
@@ -116,11 +124,11 @@ const locations = [
     id: "6", 
     name: "Dubai", 
     country: "United Arab Emirates",
-    flagUrl: "/images/flags/ae.svg",
+    countryCode: "AE",
     company: "Apex Global", 
     role: "Director of Ops", 
     author: "Tariq Al-Mansoor", 
-    avatar: "/images/avatars/tariq.jpg",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=160&auto=format&fit=crop&q=80",
     rating: 5.0,
     verified: true,
     stat: "2.4x ROI", 
@@ -133,11 +141,11 @@ const locations = [
     id: "7", 
     name: "Zurich", 
     country: "Switzerland",
-    flagUrl: "/images/flags/ch.svg",
+    countryCode: "CH",
     company: "LexiGuard", 
     role: "General Counsel", 
     author: "Sophia Chen", 
-    avatar: "/images/avatars/sophia.jpg",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&auto=format&fit=crop&q=80",
     rating: 5.0,
     verified: true,
     stat: "45s Review", 
@@ -150,11 +158,11 @@ const locations = [
     id: "8", 
     name: "Singapore", 
     country: "Singapore",
-    flagUrl: "/images/flags/sg.svg",
+    countryCode: "SG",
     company: "Nexa Health", 
     role: "Lead Architect", 
     author: "Dr. James Lee", 
-    avatar: "/images/avatars/james.jpg",
+    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=160&auto=format&fit=crop&q=80",
     rating: 5.0,
     verified: false,
     stat: "99.9% Uptime", 
@@ -797,15 +805,10 @@ export function ClientStoriesSection() {
                       : "text-white/80 bg-[#13251B]/80 border border-white/10 hover:border-white/30 hover:text-white hover:bg-[#1A3324] hover:scale-[1.03] shadow-[0_2px_6px_rgba(0,0,0,0.3)]"
                   }`}
                 >
-                  <div className={`relative w-4 h-3 rounded-[2px] overflow-hidden shrink-0 border border-white/20 transition-all duration-300 ${
+                  <div className={`relative w-4 h-3 rounded-[2px] overflow-hidden shrink-0 transition-all duration-300 ${
                     isSelected ? "scale-105" : ""
                   }`}>
-                    <Image
-                      src={loc.flagUrl}
-                      alt={loc.country}
-                      fill
-                      className="object-cover"
-                    />
+                    <CountryFlag code={loc.countryCode} className="w-4 h-3 object-cover rounded-[2px]" />
                   </div>
                   <span>{loc.name}</span>
                 </button>
@@ -899,16 +902,11 @@ export function ClientStoriesSection() {
                 </span>
               </div>
 
-              {/* City & Country Hub with SVG Flag */}
+              {/* City & Country Hub with CountryFlag */}
               <div className="mb-2.5 w-full">
                 <div className="inline-flex items-center gap-2 text-xs font-mono text-[#D4FF00]/50 font-bold mb-2">
                   <div className="relative w-7 h-5 rounded-[2px] overflow-hidden shrink-0 border border-white/20">
-                    <Image
-                      src={activeHub.flagUrl}
-                      alt={activeHub.country}
-                      fill
-                      className="object-cover"
-                    />
+                    <CountryFlag code={activeHub.countryCode} className="w-7 h-5 object-cover rounded-[2px]" />
                   </div>
                   <span>{activeHub.name}, {activeHub.country}</span>
                 </div>
@@ -994,15 +992,10 @@ export function ClientStoriesSection() {
                   </span>
                 </div>
 
-                {/* Company & City with SVG Flag */}
+                {/* Company & City with CountryFlag */}
                 <div className="flex items-center gap-2 mb-1 w-full">
                   <div className="relative w-4 h-3 rounded-[2px] overflow-hidden shrink-0 border border-white/20">
-                    <Image
-                      src={activeHub.flagUrl}
-                      alt={activeHub.country}
-                      fill
-                      className="object-cover"
-                    />
+                    <CountryFlag code={activeHub.countryCode} className="w-4 h-3 object-cover rounded-[2px]" />
                   </div>
                   <h4 className="text-base sm:text-lg font-bold text-white font-heading group-hover:text-[#D4FF00] transition-colors">
                     {activeHub.company} &mdash; <span className="text-[#D4FF00]">{activeHub.name}</span>
@@ -1078,12 +1071,7 @@ export function ClientStoriesSection() {
               <div className="flex flex-col">
                 <div className="flex items-center gap-2">
                   <div className="relative w-4 h-3 rounded-[2px] overflow-hidden shrink-0 border border-white/20">
-                    <Image
-                      src={hoveredHub.flagUrl}
-                      alt={hoveredHub.country}
-                      fill
-                      className="object-cover"
-                    />
+                    <CountryFlag code={hoveredHub.countryCode} className="w-4 h-3 object-cover rounded-[2px]" />
                   </div>
                   <span className="text-sm font-extrabold text-white font-heading">
                     {hoveredHub.name}, {hoveredHub.country}
