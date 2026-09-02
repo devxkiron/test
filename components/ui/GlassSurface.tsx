@@ -203,11 +203,6 @@ export const GlassSurface: React.FC<GlassSurfaceProps> = ({
     return div.style.backdropFilter !== "";
   };
 
-  const supportsBackdropFilter = () => {
-    if (typeof window === "undefined") return false;
-    return CSS.supports("backdrop-filter", "blur(10px)");
-  };
-
   const getContainerStyles = (): React.CSSProperties => {
     const baseStyles: React.CSSProperties = {
       ...style,
@@ -215,43 +210,32 @@ export const GlassSurface: React.FC<GlassSurfaceProps> = ({
       height: typeof height === "number" ? `${height}px` : height,
       borderRadius: `${borderRadius}px`,
       "--glass-frost": backgroundOpacity,
-      "--glass-saturation": saturation
+      "--glass-saturation": saturation,
     } as React.CSSProperties;
-
-    const backdropFilterSupported = supportsBackdropFilter();
 
     if (svgSupported) {
       return {
         ...baseStyles,
         background: `rgba(13, 28, 20, ${backgroundOpacity})`,
         backdropFilter: `url(#${filterId}) saturate(${saturation})`,
+        WebkitBackdropFilter: `url(#${filterId}) saturate(${saturation})`,
         boxShadow: `0 0 2px 1px color-mix(in oklch, white, transparent 75%) inset,
              0 0 10px 4px color-mix(in oklch, white, transparent 90%) inset,
              0px 10px 30px rgba(0, 0, 0, 0.6),
-             0px 4px 16px rgba(17, 17, 26, 0.05) inset`
+             0px 4px 16px rgba(17, 17, 26, 0.05) inset`,
       };
-    } else {
-      if (!backdropFilterSupported) {
-        return {
-          ...baseStyles,
-          background: `rgba(13, 28, 20, ${backgroundOpacity || 0.6})`,
-          border: "1px solid rgba(255, 255, 255, 0.2)",
-          boxShadow: `inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
-                      inset 0 -1px 0 0 rgba(255, 255, 255, 0.1)`
-        };
-      } else {
-        return {
-          ...baseStyles,
-          background: "rgba(13, 28, 20, 0.75)",
-          backdropFilter: "blur(16px) saturate(1.6) brightness(1.1)",
-          WebkitBackdropFilter: "blur(16px) saturate(1.6) brightness(1.1)",
-          border: "1px solid rgba(255, 255, 255, 0.18)",
-          boxShadow: `inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
-                      0 20px 50px rgba(0, 0, 0, 0.7),
-                      0 0 30px rgba(212, 255, 0, 0.1)`
-        };
-      }
     }
+
+    return {
+      ...baseStyles,
+      background: "rgba(13, 28, 20, 0.75)",
+      backdropFilter: "blur(16px) saturate(1.6) brightness(1.1)",
+      WebkitBackdropFilter: "blur(16px) saturate(1.6) brightness(1.1)",
+      border: "1px solid rgba(255, 255, 255, 0.18)",
+      boxShadow: `inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
+                  0 20px 50px rgba(0, 0, 0, 0.7),
+                  0 0 30px rgba(212, 255, 0, 0.1)`,
+    };
   };
 
   const glassSurfaceClasses =
@@ -263,6 +247,7 @@ export const GlassSurface: React.FC<GlassSurfaceProps> = ({
   return (
     <div
       ref={containerRef}
+      suppressHydrationWarning
       className={`${glassSurfaceClasses} ${focusVisibleClasses} ${className}`}
       style={getContainerStyles()}
     >
