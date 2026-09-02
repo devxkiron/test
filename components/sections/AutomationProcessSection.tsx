@@ -299,24 +299,21 @@ export function AutomationProcessSection() {
   return (
     <section ref={sectionRef} id="process" className="py-24 sm:py-32 bg-canvas border-t border-line scroll-mt-12 relative">
       <Container className="relative z-10">
-        {/* Section Header (Without blinking dots) */}
+        {/* Section Header */}
         <AnimateOnScroll direction="up">
-          <div className="max-w-3xl mb-14 sm:mb-20 text-center sm:text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 r-pill bg-canvas-alt dark:bg-canvas-subtle border border-line text-xs font-mono font-bold text-ink mb-4 shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-lime" />
-              How It Works
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink font-heading leading-[1.15]">
-              How We Automate Your Business in 5 Clear Steps
+          <div className="max-w-3xl mb-14 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink mb-6 leading-tight">
+              How we automate your business <br />
+              in <span className="font-accent inline-block -rotate-1 text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 via-lime to-[#B8E000]">5 clear steps.</span>
             </h2>
-            <p className="text-base text-ink-muted leading-relaxed mt-3 font-normal">
+            <p className="text-base sm:text-lg text-ink font-normal leading-relaxed max-w-2xl">
               From discovering manual bottlenecks to deploying self-healing AI systems that save your team dozens of hours every week.
             </p>
           </div>
         </AnimateOnScroll>
 
         {/* ─── Stacking Cards Deck (Sticky Scroll Stack with r-md corners and even height) ─── */}
-        <div ref={cardsContainerRef} className="process-stackingcards relative w-full space-y-16 sm:space-y-24 pb-4 sm:pb-6">
+        <div ref={cardsContainerRef} className="process-stackingcards relative w-full space-y-14 sm:space-y-16 pb-4 sm:pb-6">
           {steps.map((step, idx) => {
             const isExpanded = !!expandedSteps[step.id];
             const topOffsetMobile = 90 + idx * 16;
@@ -325,22 +322,22 @@ export function AutomationProcessSection() {
             return (
               <div
                 key={step.id}
-                className="process-stackingcard sticky w-full r-md overflow-hidden will-change-transform relative"
+                className="process-stackingcard sticky w-full rounded-2xl overflow-hidden will-change-transform relative"
                 style={{
                   top: `clamp(${topOffsetMobile}px, ${topOffsetDesktop}px, ${topOffsetDesktop}px)`,
-                  backgroundColor: "rgba(21, 34, 20, 0.94)",
+                  backgroundColor: "rgba(21, 34, 20, 0.86)",
                   backdropFilter: "blur(12px)",
                   WebkitBackdropFilter: "blur(12px)",
                   zIndex: idx + 10,
-                  border: "1px solid rgba(255, 255, 255, 0.22)",
-                  boxShadow: "inset 0 1px 1px 0 rgba(255, 255, 255, 0.05), 0 25px 60px -12px rgba(0, 0, 0, 0.5)",
+                  border: "2px solid rgba(113, 121, 116, 0.33)",
+                  boxShadow: "inset 0 1px 1px 0 rgba(255, 255, 255, 0.12), 0 25px 60px -12px rgba(0, 0, 0, 0.34)",
                 }}
               >
                 {/* Card Main Body: Split 2-Column Layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 p-6 sm:p-10 lg:p-12 items-start relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 p-5 lg:p-7 items-start relative z-10">
                   
                   {/* Left Column: Title and Description directly connected with zero empty gap */}
-                  <div className="lg:col-span-5 flex flex-col items-start space-y-3">
+                  <div className="lg:col-span-5 pt-4 pl-2 flex flex-col items-start space-y-5">
                     <h3
                       className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight font-heading leading-[1.2] text-white"
                       style={{ color: "#e5f0bec6" }}
@@ -356,7 +353,7 @@ export function AutomationProcessSection() {
                   </div>
 
                   {/* Right Column: Uniform Height Interactive Preview */}
-                  <div className="lg:col-span-7">
+                  <div className="lg:col-span-7 -ml-4 lg:ml-0 -mr-4 -mt-5 -mb-5">
                     
                     {/* Visual 1: Analyze Business (Diagnostic Radar & Live Checklist) */}
                     {idx === 0 && (

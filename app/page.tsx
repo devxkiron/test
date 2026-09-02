@@ -27,7 +27,7 @@ export default function HomePage() {
       <AutomationProcessSection />
 
       {/* 5. Live AI Agent Interactive Demo */}
-      <LiveDemoSection />
+      {/* <LiveDemoSection /> */}
 
       {/* 6. Specializations & Architecture Canvas */}
       <SpecializationSection />
