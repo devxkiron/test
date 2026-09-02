@@ -10,6 +10,7 @@ import { TeamCultureSection } from "@/components/sections/TeamCultureSection";
 import { BookingCalendarSection } from "@/components/sections/BookingCalendarSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { FooterSection } from "@/components/sections/FooterSection";
+import TechStack from "@/components/sections/TechStack";
 
 export default function HomePage() {
   return (
@@ -40,6 +41,9 @@ export default function HomePage() {
 
       {/* 9. Client Stories (Forest Green Testimonials) */}
       <ClientStoriesSection />
+
+      {/* Tech Stack */}
+      <TechStack/>
 
       {/* 10. Interactive Strategy Call Booking Calendar */}
       <BookingCalendarSection />
